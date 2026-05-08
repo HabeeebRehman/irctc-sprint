@@ -1,0 +1,398 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400" font-family="Inter, system-ui, sans-serif">
+  <style>
+    .frame { fill: #FFFFFF; stroke: #1F2937; stroke-width: 2; }
+    .device { fill: #F9FAFB; stroke: #9CA3AF; stroke-width: 1; }
+    .header { fill: #1A237E; }
+    .card { fill: #FFFFFF; stroke: #E5E7EB; stroke-width: 1; }
+    .light-grey { fill: #F3F4F6; }
+    .annotation { fill: #DC2626; font-style: italic; font-size: 11px; }
+    .anno-line { stroke: #DC2626; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }
+    .label-bg { fill: #FEF2F2; stroke: #DC2626; stroke-width: 1; }
+    .frame-title { fill: #111827; font-weight: 700; font-size: 18px; }
+    .state-label { fill: #4B5563; font-weight: 600; font-size: 13px; }
+    .chip-active { fill: #1A237E; stroke: #1A237E; }
+    .chip-active-text { fill: #FFFFFF; }
+    .chip-default { fill: #FFFFFF; stroke: #D1D5DB; }
+    .chip-default-text { fill: #374151; }
+    .chip-disabled { fill: #F3F4F6; stroke: #E5E7EB; }
+    .chip-disabled-text { fill: #9CA3AF; }
+    .url-bar { fill: #F3F4F6; stroke: #D1D5DB; }
+    .url-text { font-family: 'SF Mono', Monaco, monospace; font-size: 10px; fill: #1F2937; }
+    .pill-good { fill: #ECFDF5; stroke: #10B981; }
+    .pill-warn { fill: #FFFBEB; stroke: #F59E0B; }
+    .pill-bad { fill: #FEF2F2; stroke: #EF4444; }
+  </style>
+
+  <rect x="0" y="0" width="1800" height="60" fill="#111827"/>
+  <text x="30" y="38" fill="#FFFFFF" font-size="20" font-weight="700">Spec 2 — Reliable, URL-Encoded, Persistent Search Filters</text>
+  <text x="30" y="55" fill="#9CA3AF" font-size="12">Mobile 390×844 · Desktop 1440×900 · States: Default / 1 filter / 3+ filters / Empty results / Disabled chip</text>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE — DEFAULT (no filters)                                   -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Default (no filters)</text>
+    <text class="state-label" x="0" y="40">URL: /search?from=NDLS&amp;to=BCT&amp;date=2026-05-13</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <!-- url bar -->
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 irctc.co.in/search?from=NDLS&amp;to=BCT&amp;date=2026-05-13</text>
+
+    <!-- top bar -->
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="20" y="142" font-size="20" fill="#FFFFFF" font-weight="700">←</text>
+    <text x="60" y="135" font-size="13" font-weight="700" fill="#FFFFFF">NDLS → BCT</text>
+    <text x="60" y="153" font-size="11" fill="#C5CAE9">Wed, 13 May · 30 trains</text>
+    <text x="345" y="142" font-size="20" fill="#FFFFFF">⚙</text>
+    <text x="335" y="138" font-size="14" fill="#FFFFFF">●</text>
+
+    <!-- empty filter summary bar (placeholder) -->
+    <rect x="0" y="164" width="390" height="40" fill="#F9FAFB"/>
+    <text x="20" y="189" font-size="12" fill="#6B7280">No filters applied · Tap chips below to filter</text>
+
+    <!-- filter groups -->
+    <text x="20" y="230" font-size="11" font-weight="700" fill="#6B7280">CLASS</text>
+    <rect class="chip-default" x="20" y="240" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="45" y="258" text-anchor="middle" font-size="11">1A</text>
+    <rect class="chip-default" x="78" y="240" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="103" y="258" text-anchor="middle" font-size="11">2A</text>
+    <rect class="chip-default" x="136" y="240" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="161" y="258" text-anchor="middle" font-size="11">3A</text>
+    <rect class="chip-default" x="194" y="240" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="219" y="258" text-anchor="middle" font-size="11">SL</text>
+    <rect class="chip-default" x="252" y="240" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="277" y="258" text-anchor="middle" font-size="11">2S</text>
+
+    <text x="20" y="300" font-size="11" font-weight="700" fill="#6B7280">AVAILABILITY</text>
+    <rect class="chip-default" x="20" y="310" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="60" y="328" text-anchor="middle" font-size="11">Available</text>
+    <rect class="chip-default" x="108" y="310" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="133" y="328" text-anchor="middle" font-size="11">RAC</text>
+    <rect class="chip-default" x="166" y="310" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="206" y="328" text-anchor="middle" font-size="11">WL ≤ 50</text>
+
+    <text x="20" y="370" font-size="11" font-weight="700" fill="#6B7280">DEPARTURE TIME</text>
+    <rect class="chip-default" x="20" y="380" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="60" y="398" text-anchor="middle" font-size="10">Early AM</text>
+    <rect class="chip-default" x="108" y="380" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="148" y="398" text-anchor="middle" font-size="10">Morning</text>
+    <rect class="chip-default" x="196" y="380" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="236" y="398" text-anchor="middle" font-size="10">Afternoon</text>
+    <rect class="chip-default" x="284" y="380" width="80" height="28" rx="14"/>
+    <text class="chip-default-text" x="324" y="398" text-anchor="middle" font-size="10">Evening</text>
+
+    <!-- divider -->
+    <line x1="0" y1="430" x2="390" y2="430" stroke="#E5E7EB"/>
+
+    <!-- train list (3 visible) -->
+    <text x="20" y="455" font-size="11" font-weight="700" fill="#6B7280">30 TRAINS</text>
+
+    <rect class="card" x="16" y="465" width="358" height="86" rx="8"/>
+    <text x="32" y="488" font-size="13" font-weight="700">12951 Mumbai Rajdhani</text>
+    <text x="32" y="506" font-size="11" fill="#6B7280">16:25 NDLS · 08:35+1 BCT · 16h 10m</text>
+    <text x="32" y="528" font-size="11" fill="#10B981">3A: Avail-12</text>
+    <text x="120" y="528" font-size="11" fill="#F59E0B">2A: WL-8</text>
+    <text x="200" y="528" font-size="11" fill="#10B981">SL: Avail-45</text>
+    <text x="345" y="540" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect class="card" x="16" y="560" width="358" height="86" rx="8"/>
+    <text x="32" y="583" font-size="13" font-weight="700">12953 August Kranti</text>
+    <text x="32" y="601" font-size="11" fill="#6B7280">17:40 NDLS · 10:55+1 BCT · 17h 15m</text>
+    <text x="32" y="623" font-size="11" fill="#F59E0B">3A: WL-3</text>
+    <text x="120" y="623" font-size="11" fill="#10B981">2A: Avail-2</text>
+    <text x="345" y="635" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect class="card" x="16" y="655" width="358" height="86" rx="8"/>
+    <text x="32" y="678" font-size="13" font-weight="700">22209 Duronto</text>
+    <text x="32" y="696" font-size="11" fill="#6B7280">23:00 NDLS · 15:55+1 BCT · 16h 55m</text>
+    <text x="32" y="718" font-size="11" fill="#10B981">3A: Avail-4</text>
+    <text x="345" y="730" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <text x="195" y="780" font-size="11" fill="#6B7280" text-anchor="middle">… 27 more trains</text>
+
+    <!-- annotation on URL -->
+    <line class="anno-line" x1="195" y1="100" x2="195" y2="-30"/>
+    <rect class="label-bg" x="40" y="-50" width="320" height="40" rx="4"/>
+    <text class="annotation" x="50" y="-32">URL is the source of truth — every filter</text>
+    <text class="annotation" x="50" y="-18">toggle calls pushState; back-nav restores state.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE — 3 FILTERS ACTIVE                                        -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · 3 filters active</text>
+    <text class="state-label" x="0" y="40">Summary bar visible — chips removable individually</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <!-- url bar — now with filter params -->
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 …&amp;class=3A&amp;avail=avail&amp;depart=18-24</text>
+
+    <!-- top bar -->
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="20" y="142" font-size="20" fill="#FFFFFF" font-weight="700">←</text>
+    <text x="60" y="135" font-size="13" font-weight="700" fill="#FFFFFF">NDLS → BCT</text>
+    <text x="60" y="153" font-size="11" fill="#C5CAE9">Wed, 13 May · 4 trains</text>
+    <text x="345" y="142" font-size="20" fill="#FFFFFF">⚙</text>
+    <text x="335" y="138" font-size="14" fill="#FBBF24">●</text>
+
+    <!-- ACTIVE FILTER SUMMARY BAR (sticky) -->
+    <rect x="0" y="164" width="390" height="50" fill="#EFF6FF" stroke="#3B82F6"/>
+    <text x="14" y="185" font-size="10" font-weight="700" fill="#1E40AF">FILTERS</text>
+    <!-- chips with × -->
+    <rect class="chip-active" x="14" y="190" width="60" height="22" rx="11"/>
+    <text class="chip-active-text" x="36" y="205" font-size="11">3A</text>
+    <text class="chip-active-text" x="60" y="205" font-size="11">×</text>
+
+    <rect class="chip-active" x="80" y="190" width="86" height="22" rx="11"/>
+    <text class="chip-active-text" x="105" y="205" font-size="11">Available</text>
+    <text class="chip-active-text" x="153" y="205" font-size="11">×</text>
+
+    <rect class="chip-active" x="172" y="190" width="100" height="22" rx="11"/>
+    <text class="chip-active-text" x="200" y="205" font-size="11">6 PM–12 AM</text>
+    <text class="chip-active-text" x="259" y="205" font-size="11">×</text>
+
+    <text x="285" y="205" font-size="11" fill="#1E40AF" font-weight="600" text-decoration="underline">Clear all</text>
+
+    <!-- filter groups (collapsed below) -->
+    <text x="20" y="240" font-size="11" font-weight="700" fill="#6B7280">CLASS</text>
+    <rect class="chip-default" x="20" y="250" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="45" y="268" text-anchor="middle" font-size="11">1A</text>
+    <rect class="chip-default" x="78" y="250" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="103" y="268" text-anchor="middle" font-size="11">2A</text>
+    <rect class="chip-active" x="136" y="250" width="50" height="28" rx="14"/>
+    <text class="chip-active-text" x="161" y="268" text-anchor="middle" font-size="11">3A ✓</text>
+    <rect class="chip-default" x="194" y="250" width="50" height="28" rx="14"/>
+    <text class="chip-default-text" x="219" y="268" text-anchor="middle" font-size="11">SL</text>
+    <rect class="chip-disabled" x="252" y="250" width="50" height="28" rx="14"/>
+    <text class="chip-disabled-text" x="277" y="268" text-anchor="middle" font-size="11">2S</text>
+    <text x="290" y="270" font-size="9" fill="#9CA3AF">ⓘ</text>
+
+    <!-- divider -->
+    <line x1="0" y1="305" x2="390" y2="305" stroke="#E5E7EB"/>
+
+    <!-- filtered train list -->
+    <text x="20" y="330" font-size="11" font-weight="700" fill="#6B7280">4 TRAINS MATCH</text>
+
+    <rect class="card" x="16" y="340" width="358" height="86" rx="8"/>
+    <text x="32" y="363" font-size="13" font-weight="700">12951 Mumbai Rajdhani</text>
+    <text x="32" y="381" font-size="11" fill="#6B7280">16:25 NDLS · 08:35+1 BCT</text>
+    <rect x="32" y="400" width="100" height="20" rx="4" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="82" y="414" font-size="11" fill="#065F46" text-anchor="middle" font-weight="600">3A: Avail-12</text>
+
+    <rect class="card" x="16" y="435" width="358" height="86" rx="8"/>
+    <text x="32" y="458" font-size="13" font-weight="700">22209 Duronto</text>
+    <text x="32" y="476" font-size="11" fill="#6B7280">23:00 NDLS · 15:55+1 BCT</text>
+    <rect x="32" y="495" width="92" height="20" rx="4" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="78" y="509" font-size="11" fill="#065F46" text-anchor="middle" font-weight="600">3A: Avail-4</text>
+
+    <rect class="card" x="16" y="530" width="358" height="86" rx="8"/>
+    <text x="32" y="553" font-size="13" font-weight="700">12909 Garib Rath</text>
+    <text x="32" y="571" font-size="11" fill="#6B7280">19:30 NDLS · 12:25+1 BCT</text>
+    <rect x="32" y="590" width="92" height="20" rx="4" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="78" y="604" font-size="11" fill="#065F46" text-anchor="middle" font-weight="600">3A: Avail-8</text>
+
+    <!-- annotations -->
+    <line class="anno-line" x1="195" y1="100" x2="195" y2="0"/>
+    <rect class="label-bg" x="40" y="-20" width="320" height="36" rx="4"/>
+    <text class="annotation" x="50" y="-3">URL now encodes all 3 filters.</text>
+    <text class="annotation" x="50" y="10">Shareable. Bookmarkable. Survives back-nav.</text>
+
+    <line class="anno-line" x1="195" y1="200" x2="-30" y2="200"/>
+    <rect class="label-bg" x="-220" y="190" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-210" y="205">Sticky summary — always shows what's</text>
+    <text class="annotation" x="-210" y="218">active. Tap × to remove individual filter.</text>
+
+    <line class="anno-line" x1="290" y1="265" x2="450" y2="265"/>
+    <rect class="label-bg" x="450" y="245" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="262">Disabled chip — toggling would</text>
+    <text class="annotation" x="460" y="275">yield 0 results. Tap (i) for tooltip.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE — EMPTY RESULTS                                          -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Empty results</text>
+    <text class="state-label" x="0" y="40">Filters yield 0 trains — actionable suggestion</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 …&amp;class=1A&amp;depart=0-6&amp;type=raj</text>
+
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="60" y="135" font-size="13" font-weight="700" fill="#FFFFFF">NDLS → BCT</text>
+    <text x="60" y="153" font-size="11" fill="#C5CAE9">Wed, 13 May · 0 trains</text>
+
+    <!-- summary bar -->
+    <rect x="0" y="164" width="390" height="50" fill="#EFF6FF" stroke="#3B82F6"/>
+    <rect class="chip-active" x="14" y="190" width="60" height="22" rx="11"/>
+    <text class="chip-active-text" x="36" y="205" font-size="11">1A</text>
+    <text class="chip-active-text" x="60" y="205" font-size="11">×</text>
+
+    <rect class="chip-active" x="80" y="190" width="100" height="22" rx="11"/>
+    <text class="chip-active-text" x="115" y="205" font-size="11">12 AM–6 AM</text>
+    <text class="chip-active-text" x="167" y="205" font-size="11">×</text>
+
+    <rect class="chip-active" x="186" y="190" width="78" height="22" rx="11"/>
+    <text class="chip-active-text" x="208" y="205" font-size="11">Rajdhani</text>
+    <text class="chip-active-text" x="251" y="205" font-size="11">×</text>
+
+    <!-- empty illustration -->
+    <text x="195" y="380" text-anchor="middle" font-size="64" fill="#9CA3AF">🚂</text>
+    <text x="195" y="430" text-anchor="middle" font-size="18" font-weight="700" fill="#111827">No trains match</text>
+    <text x="195" y="455" text-anchor="middle" font-size="13" fill="#6B7280">these filters</text>
+
+    <!-- suggestion -->
+    <rect x="20" y="490" width="350" height="100" rx="8" fill="#F0FDF4" stroke="#10B981"/>
+    <text x="36" y="514" font-size="12" font-weight="700" fill="#065F46">💡 Suggestion</text>
+    <text x="36" y="535" font-size="13" fill="#065F46">Try removing the time filter —</text>
+    <text x="36" y="551" font-size="13" fill="#065F46">there are 5 Rajdhani trains</text>
+    <text x="36" y="567" font-size="13" font-weight="700" fill="#065F46">available in 1A.</text>
+
+    <rect x="36" y="615" width="320" height="40" rx="8" fill="#10B981"/>
+    <text x="196" y="640" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Remove time filter</text>
+
+    <!-- annotation -->
+    <line class="anno-line" x1="195" y1="635" x2="450" y2="635"/>
+    <rect class="label-bg" x="450" y="615" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="632">API returns suggestion when</text>
+    <text class="annotation" x="460" y="645">empty — based on which filter</text>
+    <text class="annotation" x="460" y="658">to drop yields most results.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- DESKTOP                                                         -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1020)">
+    <text class="frame-title" x="0" y="20">Desktop · Two-column layout</text>
+    <text class="state-label" x="0" y="40">Sidebar filters (sticky) + summary bar mirror state</text>
+
+    <rect class="device" x="0" y="60" width="1440" height="900" rx="8"/>
+    <rect class="frame" x="0" y="60" width="1440" height="900" rx="8"/>
+
+    <!-- url bar -->
+    <rect class="url-bar" x="40" y="78" width="1360" height="28" rx="14"/>
+    <text class="url-text" x="60" y="96" font-size="11">🔒 irctc.co.in/search?from=NDLS&amp;to=BCT&amp;date=2026-05-13&amp;class=3A&amp;avail=avail&amp;depart=18-24</text>
+
+    <!-- top bar -->
+    <rect class="header" x="0" y="116" width="1440" height="64"/>
+    <text x="40" y="158" font-size="22" font-weight="700" fill="#FFFFFF">NDLS New Delhi → BCT Mumbai Central</text>
+    <text x="40" y="178" font-size="13" fill="#C5CAE9">Wed, 13 May 2026 · 4 trains match filters</text>
+
+    <!-- summary bar -->
+    <rect x="0" y="180" width="1440" height="48" fill="#EFF6FF" stroke="#3B82F6"/>
+    <text x="40" y="208" font-size="11" font-weight="700" fill="#1E40AF">FILTERS:</text>
+    <rect class="chip-active" x="120" y="194" width="60" height="22" rx="11"/>
+    <text class="chip-active-text" x="142" y="209" font-size="11">3A</text>
+    <text class="chip-active-text" x="166" y="209" font-size="11">×</text>
+    <rect class="chip-active" x="190" y="194" width="86" height="22" rx="11"/>
+    <text class="chip-active-text" x="215" y="209" font-size="11">Available</text>
+    <text class="chip-active-text" x="263" y="209" font-size="11">×</text>
+    <rect class="chip-active" x="286" y="194" width="100" height="22" rx="11"/>
+    <text class="chip-active-text" x="314" y="209" font-size="11">6 PM–12 AM</text>
+    <text class="chip-active-text" x="373" y="209" font-size="11">×</text>
+    <text x="410" y="209" font-size="11" fill="#1E40AF" font-weight="600" text-decoration="underline">Clear all</text>
+
+    <!-- LEFT SIDEBAR -->
+    <rect x="0" y="228" width="300" height="730" fill="#F9FAFB"/>
+
+    <text x="20" y="260" font-size="13" font-weight="700" fill="#111827">CLASS</text>
+    <rect class="chip-default" x="20" y="270" width="60" height="32" rx="16"/>
+    <text class="chip-default-text" x="50" y="290" text-anchor="middle" font-size="12">1A</text>
+    <rect class="chip-default" x="86" y="270" width="60" height="32" rx="16"/>
+    <text class="chip-default-text" x="116" y="290" text-anchor="middle" font-size="12">2A</text>
+    <rect class="chip-active" x="152" y="270" width="60" height="32" rx="16"/>
+    <text class="chip-active-text" x="182" y="290" text-anchor="middle" font-size="12">3A ✓</text>
+    <rect class="chip-default" x="218" y="270" width="60" height="32" rx="16"/>
+    <text class="chip-default-text" x="248" y="290" text-anchor="middle" font-size="12">SL</text>
+
+    <text x="20" y="340" font-size="13" font-weight="700" fill="#111827">AVAILABILITY</text>
+    <rect class="chip-active" x="20" y="350" width="100" height="32" rx="16"/>
+    <text class="chip-active-text" x="70" y="370" text-anchor="middle" font-size="12">Available ✓</text>
+    <rect class="chip-default" x="126" y="350" width="60" height="32" rx="16"/>
+    <text class="chip-default-text" x="156" y="370" text-anchor="middle" font-size="12">RAC</text>
+    <rect class="chip-default" x="192" y="350" width="80" height="32" rx="16"/>
+    <text class="chip-default-text" x="232" y="370" text-anchor="middle" font-size="12">WL ≤ 50</text>
+
+    <text x="20" y="420" font-size="13" font-weight="700" fill="#111827">DEPARTURE TIME</text>
+    <rect class="chip-default" x="20" y="430" width="80" height="32" rx="16"/>
+    <text class="chip-default-text" x="60" y="450" text-anchor="middle" font-size="11">Early AM</text>
+    <rect class="chip-default" x="106" y="430" width="80" height="32" rx="16"/>
+    <text class="chip-default-text" x="146" y="450" text-anchor="middle" font-size="11">Morning</text>
+    <rect class="chip-active" x="20" y="468" width="100" height="32" rx="16"/>
+    <text class="chip-active-text" x="70" y="488" text-anchor="middle" font-size="11">6 PM–12 AM ✓</text>
+
+    <!-- RIGHT — train list -->
+    <text x="320" y="260" font-size="13" font-weight="700" fill="#6B7280">4 TRAINS MATCH FILTERS</text>
+
+    <rect class="card" x="320" y="270" width="1100" height="100" rx="8"/>
+    <text x="340" y="298" font-size="16" font-weight="700">12951 Mumbai Rajdhani Express</text>
+    <text x="340" y="320" font-size="12" fill="#6B7280">16:25 NDLS · 08:35+1 BCT · 16h 10m</text>
+    <rect x="340" y="335" width="120" height="22" rx="11" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="400" y="350" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">3A: Avail-12 ✓</text>
+    <rect x="468" y="335" width="100" height="22" rx="11" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="518" y="350" text-anchor="middle" font-size="11" fill="#92400E">2A: WL-8</text>
+    <rect x="576" y="335" width="120" height="22" rx="11" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="636" y="350" text-anchor="middle" font-size="11" fill="#065F46">SL: Avail-45</text>
+    <text x="1380" y="328" font-size="20" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect class="card" x="320" y="380" width="1100" height="100" rx="8"/>
+    <text x="340" y="408" font-size="16" font-weight="700">22209 Duronto</text>
+    <text x="340" y="430" font-size="12" fill="#6B7280">23:00 NDLS · 15:55+1 BCT · 16h 55m</text>
+    <rect x="340" y="445" width="110" height="22" rx="11" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="395" y="460" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">3A: Avail-4 ✓</text>
+
+    <rect class="card" x="320" y="490" width="1100" height="100" rx="8"/>
+    <text x="340" y="518" font-size="16" font-weight="700">12909 Garib Rath</text>
+    <text x="340" y="540" font-size="12" fill="#6B7280">19:30 NDLS · 12:25+1 BCT · 16h 55m</text>
+    <rect x="340" y="555" width="110" height="22" rx="11" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="395" y="570" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">3A: Avail-8 ✓</text>
+
+    <rect class="card" x="320" y="600" width="1100" height="100" rx="8"/>
+    <text x="340" y="628" font-size="16" font-weight="700">12953 August Kranti</text>
+    <text x="340" y="650" font-size="12" fill="#6B7280">17:40 NDLS · 10:55+1 BCT · 17h 15m</text>
+    <rect x="340" y="665" width="110" height="22" rx="11" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="395" y="680" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">3A: Avail-2 ✓</text>
+
+    <!-- annotations -->
+    <line class="anno-line" x1="700" y1="105" x2="700" y2="0"/>
+    <rect class="label-bg" x="500" y="-25" width="400" height="20" rx="4"/>
+    <text class="annotation" x="510" y="-10">URL is the source of truth — share, bookmark, back-nav all work.</text>
+
+    <line class="anno-line" x1="150" y1="285" x2="150" y2="990"/>
+    <rect class="label-bg" x="20" y="990" width="280" height="36" rx="4"/>
+    <text class="annotation" x="30" y="1006">Sticky filter sidebar.</text>
+    <text class="annotation" x="30" y="1019">State mirrored in URL + summary bar above.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- BEFORE/AFTER                                                    -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 2000)">
+    <text class="frame-title" x="0" y="20" fill="#DC2626">BEFORE / AFTER comparison</text>
+
+    <text x="0" y="60" font-size="14" font-weight="700" fill="#DC2626">BEFORE</text>
+    <text x="0" y="80" font-size="12" fill="#6B7280">• Filters in sidebar — no URL change on toggle</text>
+    <text x="0" y="100" font-size="12" fill="#6B7280">• Back navigation wipes all filters</text>
+    <text x="0" y="120" font-size="12" fill="#6B7280">• "Available only" is one binary toggle, ambiguous about RAC/WL</text>
+    <text x="0" y="140" font-size="12" fill="#6B7280">• Filter combinations sometimes silently yield 0 results — no explanation</text>
+    <text x="0" y="160" font-size="12" fill="#6B7280">• Cannot share a filtered view with a family member</text>
+
+    <text x="900" y="60" font-size="14" font-weight="700" fill="#10B981">AFTER</text>
+    <text x="900" y="80" font-size="12" fill="#374151">• Filters in URL — every toggle calls pushState</text>
+    <text x="900" y="100" font-size="12" fill="#374151">• Back navigation restores filter state perfectly</text>
+    <text x="900" y="120" font-size="12" fill="#374151">• Granular availability chips: Available / RAC / WL ≤ 50 / WL &gt; 50</text>
+    <text x="900" y="140" font-size="12" fill="#374151">• Disabled chips with tooltip explain "0 results if you toggle this"</text>
+    <text x="900" y="160" font-size="12" fill="#374151">• Shareable URL — family members open same filtered view</text>
+    <text x="900" y="180" font-size="12" fill="#374151">• Empty state suggests which filter to drop, with one-tap action</text>
+  </g>
+</svg>

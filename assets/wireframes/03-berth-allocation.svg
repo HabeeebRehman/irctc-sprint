@@ -1,0 +1,430 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400" font-family="Inter, system-ui, sans-serif">
+  <style>
+    .frame { fill: #FFFFFF; stroke: #1F2937; stroke-width: 2; }
+    .device { fill: #F9FAFB; stroke: #9CA3AF; stroke-width: 1; }
+    .header { fill: #1A237E; }
+    .card { fill: #FFFFFF; stroke: #E5E7EB; stroke-width: 1; }
+    .annotation { fill: #DC2626; font-style: italic; font-size: 11px; }
+    .anno-line { stroke: #DC2626; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }
+    .label-bg { fill: #FEF2F2; stroke: #DC2626; stroke-width: 1; }
+    .frame-title { fill: #111827; font-weight: 700; font-size: 18px; }
+    .state-label { fill: #4B5563; font-weight: 600; font-size: 13px; }
+    .input { fill: #FFFFFF; stroke: #D1D5DB; stroke-width: 1; }
+    .disclosure-bg { fill: #EFF6FF; stroke: #3B82F6; stroke-width: 1; }
+    .pill-high { fill: #ECFDF5; stroke: #10B981; }
+    .pill-mid { fill: #FFFBEB; stroke: #F59E0B; }
+    .pill-low { fill: #FEF2F2; stroke: #EF4444; }
+    .banner-warn { fill: #FFFBEB; stroke: #F59E0B; stroke-width: 2; }
+    .banner-bad { fill: #FEF2F2; stroke: #EF4444; stroke-width: 2; }
+  </style>
+
+  <rect x="0" y="0" width="1800" height="60" fill="#111827"/>
+  <text x="30" y="38" fill="#FFFFFF" font-size="20" font-weight="700">Spec 3 — Berth Preference: Explicit Contract &amp; Pre-Payment Confirmation</text>
+  <text x="30" y="55" fill="#9CA3AF" font-size="12">Two screens: A) Passenger form (modified) · B) Review screen (redesigned) · States: All-high / One-mismatch / All-mismatch / Inventory-unavailable / 6-passenger collapsed</text>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN A — Passenger form with inline disclosure                -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 100)">
+    <text class="frame-title" x="0" y="20">Screen A · Passenger form (modified)</text>
+    <text class="state-label" x="0" y="40">Inline disclosure when specific berth selected</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="20" y="93" font-size="20" fill="#FFFFFF">←</text>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Passenger Details</text>
+
+    <!-- Train summary -->
+    <rect x="0" y="116" width="390" height="40" fill="#F3F4F6"/>
+    <text x="20" y="140" font-size="12" font-weight="700">12951 Mumbai Rajdhani · 3A · 13 May</text>
+
+    <text x="20" y="180" font-size="13" font-weight="700" fill="#111827">Passenger 1</text>
+
+    <!-- name -->
+    <text x="20" y="205" font-size="11" fill="#6B7280">Name</text>
+    <rect class="input" x="20" y="212" width="350" height="34" rx="6"/>
+    <text x="32" y="234" font-size="13" fill="#111827">Ramesh Kumar</text>
+
+    <!-- age + gender row -->
+    <text x="20" y="265" font-size="11" fill="#6B7280">Age</text>
+    <rect class="input" x="20" y="272" width="80" height="34" rx="6"/>
+    <text x="32" y="294" font-size="13" fill="#111827">67</text>
+    <text x="120" y="265" font-size="11" fill="#6B7280">Gender</text>
+    <rect class="input" x="120" y="272" width="120" height="34" rx="6"/>
+    <text x="132" y="294" font-size="13" fill="#111827">Male ▾</text>
+
+    <!-- berth preference (with (i)) -->
+    <text x="20" y="330" font-size="11" fill="#6B7280">Berth Preference</text>
+    <text x="125" y="330" font-size="11" fill="#1A237E" font-weight="700">ⓘ</text>
+    <rect class="input" x="20" y="338" width="350" height="34" rx="6"/>
+    <text x="32" y="360" font-size="13" font-weight="600" fill="#111827">Lower ▾</text>
+
+    <!-- THE NEW DISCLOSURE BOX -->
+    <rect class="disclosure-bg" x="20" y="382" width="350" height="64" rx="6"/>
+    <text x="32" y="402" font-size="11" font-weight="700" fill="#1E40AF">ℹ Lower berth requested</text>
+    <text x="32" y="420" font-size="11" fill="#1E40AF">Subject to availability — you'll see</text>
+    <text x="32" y="436" font-size="11" fill="#1E40AF">the confirmed allocation before payment.</text>
+
+    <!-- Senior citizen badge -->
+    <rect x="20" y="458" width="160" height="22" rx="11" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="32" y="473" font-size="10" fill="#92400E" font-weight="600">⚡ Senior citizen quota</text>
+
+    <!-- Passenger 2 -->
+    <line x1="20" y1="500" x2="370" y2="500" stroke="#E5E7EB"/>
+    <text x="20" y="525" font-size="13" font-weight="700" fill="#111827">Passenger 2</text>
+    <rect class="input" x="20" y="540" width="350" height="34" rx="6"/>
+    <text x="32" y="562" font-size="13">Sita Devi</text>
+
+    <text x="20" y="595" font-size="11" fill="#6B7280">Berth Preference</text>
+    <rect class="input" x="20" y="603" width="350" height="34" rx="6"/>
+    <text x="32" y="625" font-size="13" font-weight="600">Middle ▾</text>
+
+    <!-- + Add passenger -->
+    <rect x="20" y="660" width="350" height="36" rx="6" fill="#FFFFFF" stroke="#1A237E" stroke-dasharray="4,2"/>
+    <text x="195" y="683" text-anchor="middle" font-size="13" fill="#1A237E" font-weight="600">+ Add passenger</text>
+
+    <!-- continue button -->
+    <rect x="20" y="720" width="350" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="750" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Review Booking</text>
+
+    <!-- annotation -->
+    <line class="anno-line" x1="195" y1="414" x2="450" y2="414"/>
+    <rect class="label-bg" x="450" y="394" width="240" height="48" rx="4"/>
+    <text class="annotation" x="460" y="411">NEW — appears as soon as a non-default</text>
+    <text class="annotation" x="460" y="424">berth is selected. Sets the contract early:</text>
+    <text class="annotation" x="460" y="437">"Lower" is a request, not a guarantee.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN B1 — Review with All HIGH                                -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 100)">
+    <text class="frame-title" x="0" y="20">Screen B1 · Review · All passengers HIGH</text>
+    <text class="state-label" x="0" y="40">Happy path — green pills, no banner</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Review &amp; Pay</text>
+
+    <!-- train summary -->
+    <rect class="card" x="16" y="140" width="358" height="60" rx="8"/>
+    <text x="32" y="163" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="181" font-size="11" fill="#6B7280">NDLS → BCT · Wed, 13 May · 16:25</text>
+
+    <!-- Section header -->
+    <text x="20" y="225" font-size="11" font-weight="700" fill="#6B7280">BERTH ALLOCATION (PRE-PAYMENT)</text>
+
+    <!-- Passenger 1 — HIGH -->
+    <rect class="card" x="16" y="240" width="358" height="92" rx="8"/>
+    <text x="32" y="263" font-size="13" font-weight="700">Ramesh Kumar, 67y</text>
+    <text x="32" y="287" font-size="11" fill="#6B7280">Requested: Lower</text>
+    <text x="32" y="305" font-size="13" font-weight="600">Allocated: Lower (Coach B4)</text>
+    <rect class="pill-high" x="280" y="278" width="80" height="24" rx="12"/>
+    <text x="320" y="294" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">● High</text>
+
+    <!-- Passenger 2 — HIGH -->
+    <rect class="card" x="16" y="342" width="358" height="92" rx="8"/>
+    <text x="32" y="365" font-size="13" font-weight="700">Sita Devi, 62y</text>
+    <text x="32" y="389" font-size="11" fill="#6B7280">Requested: Middle</text>
+    <text x="32" y="407" font-size="13" font-weight="600">Allocated: Middle (Coach B4)</text>
+    <rect class="pill-high" x="280" y="380" width="80" height="24" rx="12"/>
+    <text x="320" y="396" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">● High</text>
+
+    <!-- fare -->
+    <rect class="card" x="16" y="450" width="358" height="100" rx="8"/>
+    <text x="32" y="475" font-size="11" fill="#6B7280">FARE BREAKDOWN</text>
+    <text x="32" y="498" font-size="12">Base · 2 × ₹1,510</text>
+    <text x="345" y="498" font-size="12" text-anchor="end">₹3,020</text>
+    <text x="32" y="518" font-size="12">Reservation + GST</text>
+    <text x="345" y="518" font-size="12" text-anchor="end">₹400</text>
+    <line x1="32" y1="528" x2="345" y2="528" stroke="#E5E7EB"/>
+    <text x="32" y="545" font-size="13" font-weight="700">Total</text>
+    <text x="345" y="545" font-size="13" font-weight="700" text-anchor="end">₹3,420</text>
+
+    <!-- pay button -->
+    <rect x="16" y="720" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="750" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Pay ₹3,420</text>
+
+    <!-- 2-second delay note -->
+    <text x="195" y="790" text-anchor="middle" font-size="10" fill="#9CA3AF">Pay button enabled in 2s — please review allocation</text>
+
+    <line class="anno-line" x1="320" y1="290" x2="450" y2="290"/>
+    <rect class="label-bg" x="450" y="270" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="287">Allocation block — replaces the</text>
+    <text class="annotation" x="460" y="300">truncated berth column on mobile.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN B2 — Review with one MISMATCH                            -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 100)">
+    <text class="frame-title" x="0" y="20">Screen B2 · Review · One MISMATCH</text>
+    <text class="state-label" x="0" y="40">Amber banner — user decides before paying</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Review &amp; Pay</text>
+
+    <!-- AMBER WARNING BANNER -->
+    <rect class="banner-warn" x="16" y="130" width="358" height="74" rx="8"/>
+    <text x="32" y="155" font-size="14" font-weight="700" fill="#92400E">⚠ 1 passenger may not get</text>
+    <text x="32" y="173" font-size="14" font-weight="700" fill="#92400E">their requested berth</text>
+    <text x="32" y="194" font-size="11" fill="#92400E">Review allocations below before paying.</text>
+
+    <!-- train summary -->
+    <rect class="card" x="16" y="216" width="358" height="50" rx="8"/>
+    <text x="32" y="237" font-size="12" font-weight="700">12951 Mumbai Rajdhani · 3A · 13 May</text>
+
+    <text x="20" y="290" font-size="11" font-weight="700" fill="#6B7280">BERTH ALLOCATION</text>
+
+    <!-- Passenger 1 — HIGH -->
+    <rect class="card" x="16" y="305" width="358" height="80" rx="8"/>
+    <text x="32" y="326" font-size="13" font-weight="700">Ramesh Kumar, 67y</text>
+    <text x="32" y="345" font-size="11" fill="#6B7280">Requested: Lower</text>
+    <text x="32" y="362" font-size="12" font-weight="600">Allocated: Lower (B4)</text>
+    <rect class="pill-high" x="280" y="335" width="80" height="24" rx="12"/>
+    <text x="320" y="351" text-anchor="middle" font-size="11" fill="#065F46" font-weight="700">● High</text>
+
+    <!-- Passenger 2 — MISMATCH -->
+    <rect x="16" y="395" width="358" height="92" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="32" y="418" font-size="13" font-weight="700">Sita Devi, 62y</text>
+    <text x="32" y="437" font-size="11" fill="#92400E">Requested: Lower</text>
+    <text x="32" y="454" font-size="12" font-weight="700" fill="#92400E">Will be: Side Upper (B4)</text>
+    <text x="32" y="471" font-size="10" fill="#92400E">Lower berths sold out at this time</text>
+    <rect class="pill-mid" x="270" y="425" width="90" height="24" rx="12"/>
+    <text x="315" y="441" text-anchor="middle" font-size="11" fill="#92400E" font-weight="700">● Mismatch</text>
+
+    <!-- 3 buttons stacked -->
+    <rect x="16" y="510" width="358" height="40" rx="6" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="535" text-anchor="middle" font-size="12" font-weight="700" fill="#1A237E">Try a different train</text>
+
+    <rect x="16" y="555" width="358" height="40" rx="6" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="580" text-anchor="middle" font-size="12" font-weight="700" fill="#1A237E">Modify passengers</text>
+
+    <rect x="16" y="600" width="358" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"/>
+    <text x="195" y="625" text-anchor="middle" font-size="12" fill="#6B7280">Proceed anyway</text>
+
+    <!-- pay button -->
+    <rect x="16" y="730" width="358" height="48" rx="8" fill="#9CA3AF"/>
+    <text x="195" y="760" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Pay ₹3,420 (review first)</text>
+
+    <line class="anno-line" x1="195" y1="167" x2="450" y2="167"/>
+    <rect class="label-bg" x="450" y="147" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="164">Surfaced BEFORE payment.</text>
+    <text class="annotation" x="460" y="177">User makes decision while seat is</text>
+
+    <line class="anno-line" x1="195" y1="455" x2="-30" y2="455"/>
+    <rect class="label-bg" x="-220" y="445" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-210" y="460">Plain explanation — not "we couldn't</text>
+    <text class="annotation" x="-210" y="473">save your selection"; honest reason.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN B3 — All MISMATCH                                        -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1020)">
+    <text class="frame-title" x="0" y="20">Screen B3 · All passengers mismatch</text>
+    <text class="state-label" x="0" y="40">Red banner — strong recommendation to switch trains</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Review &amp; Pay</text>
+
+    <!-- RED BANNER -->
+    <rect class="banner-bad" x="16" y="130" width="358" height="80" rx="8"/>
+    <text x="32" y="158" font-size="14" font-weight="700" fill="#991B1B">❌ All passengers will get</text>
+    <text x="32" y="176" font-size="14" font-weight="700" fill="#991B1B">different berths than requested</text>
+    <text x="32" y="198" font-size="11" fill="#991B1B">We recommend trying another train.</text>
+
+    <!-- Both passengers mismatch -->
+    <rect x="16" y="225" width="358" height="80" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="32" y="248" font-size="13" font-weight="700">Ramesh Kumar, 67y</text>
+    <text x="32" y="266" font-size="11" fill="#991B1B">Requested: Lower → Will be: Upper</text>
+    <rect class="pill-low" x="280" y="262" width="80" height="22" rx="11"/>
+    <text x="320" y="276" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="700">Mismatch</text>
+
+    <rect x="16" y="315" width="358" height="80" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="32" y="338" font-size="13" font-weight="700">Sita Devi, 62y</text>
+    <text x="32" y="356" font-size="11" fill="#991B1B">Requested: Lower → Will be: Side Upper</text>
+    <rect class="pill-low" x="280" y="352" width="80" height="22" rx="11"/>
+    <text x="320" y="366" text-anchor="middle" font-size="11" fill="#991B1B" font-weight="700">Mismatch</text>
+
+    <rect x="16" y="420" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="450" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">See alternate trains →</text>
+
+    <rect x="16" y="478" width="358" height="40" rx="6" fill="#FFFFFF" stroke="#9CA3AF"/>
+    <text x="195" y="503" text-anchor="middle" font-size="12" fill="#6B7280">Proceed anyway</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN B4 — Inventory unavailable (graceful fallback)           -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 1020)">
+    <text class="frame-title" x="0" y="20">Screen B4 · Inventory data unavailable</text>
+    <text class="state-label" x="0" y="40">Graceful fallback — service degradation</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Review &amp; Pay</text>
+
+    <!-- subtle informational banner -->
+    <rect x="16" y="130" width="358" height="50" rx="8" fill="#F3F4F6" stroke="#9CA3AF"/>
+    <text x="32" y="153" font-size="12" font-weight="700" fill="#374151">ⓘ Allocation will be confirmed</text>
+    <text x="32" y="170" font-size="11" fill="#6B7280">by Railways. Lower berth request noted.</text>
+
+    <!-- passenger blocks without allocation -->
+    <rect class="card" x="16" y="195" width="358" height="80" rx="8"/>
+    <text x="32" y="218" font-size="13" font-weight="700">Ramesh Kumar, 67y</text>
+    <text x="32" y="237" font-size="11" fill="#6B7280">Requested: Lower</text>
+    <text x="32" y="255" font-size="12" font-weight="600" fill="#6B7280">Allocation: TBC at booking</text>
+    <rect x="270" y="232" width="90" height="24" rx="12" fill="#F3F4F6" stroke="#9CA3AF"/>
+    <text x="315" y="248" text-anchor="middle" font-size="10" fill="#6B7280" font-weight="600">Pending</text>
+
+    <rect class="card" x="16" y="285" width="358" height="80" rx="8"/>
+    <text x="32" y="308" font-size="13" font-weight="700">Sita Devi, 62y</text>
+    <text x="32" y="327" font-size="11" fill="#6B7280">Requested: Middle</text>
+    <text x="32" y="345" font-size="12" font-weight="600" fill="#6B7280">Allocation: TBC at booking</text>
+    <rect x="270" y="322" width="90" height="24" rx="12" fill="#F3F4F6" stroke="#9CA3AF"/>
+    <text x="315" y="338" text-anchor="middle" font-size="10" fill="#6B7280" font-weight="600">Pending</text>
+
+    <rect x="16" y="420" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="450" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Pay ₹3,420</text>
+
+    <text x="195" y="490" text-anchor="middle" font-size="10" fill="#6B7280">Same as today's behaviour — but at least labelled</text>
+
+    <line class="anno-line" x1="195" y1="155" x2="-30" y2="155"/>
+    <rect class="label-bg" x="-220" y="145" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-210" y="162">Graceful degradation when</text>
+    <text class="annotation" x="-210" y="175">preview-allocation API is down.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SCREEN B5 — 6-passenger collapsed view                          -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 1020)">
+    <text class="frame-title" x="0" y="20">Screen B5 · 6-passenger group (collapsed)</text>
+    <text class="state-label" x="0" y="40">Avoids dense scrolling on mobile — expandable</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Review &amp; Pay</text>
+
+    <!-- summary -->
+    <rect class="card" x="16" y="140" width="358" height="60" rx="8"/>
+    <text x="32" y="163" font-size="13" font-weight="700">12951 · 3A · 6 passengers</text>
+    <text x="32" y="181" font-size="11" fill="#6B7280">NDLS → BCT · 13 May</text>
+
+    <!-- collapsed allocation summary -->
+    <rect x="16" y="220" width="358" height="100" rx="8" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="32" y="245" font-size="13" font-weight="700" fill="#065F46">Berth allocation summary</text>
+    <text x="32" y="270" font-size="12" fill="#065F46">5 of 6 passengers — High likelihood ✓</text>
+    <text x="32" y="290" font-size="12" fill="#92400E">1 of 6 passengers — Mismatch ⚠</text>
+    <text x="32" y="312" font-size="11" fill="#1A237E" font-weight="600" text-decoration="underline">Tap to expand all 6 →</text>
+
+    <!-- expanded preview row -->
+    <text x="20" y="360" font-size="11" font-weight="700" fill="#6B7280">EXPANDED VIEW:</text>
+
+    <rect class="card" x="16" y="375" width="358" height="40" rx="6"/>
+    <text x="32" y="400" font-size="11">P1: Ramesh, 67 · Lower → Lower</text>
+    <rect x="290" y="385" width="60" height="20" rx="10" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="320" y="399" text-anchor="middle" font-size="9" fill="#065F46" font-weight="700">High</text>
+
+    <rect class="card" x="16" y="420" width="358" height="40" rx="6"/>
+    <text x="32" y="445" font-size="11">P2: Sita, 62 · Lower → Side Upper</text>
+    <rect x="290" y="430" width="60" height="20" rx="10" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="320" y="444" text-anchor="middle" font-size="9" fill="#92400E" font-weight="700">⚠</text>
+
+    <rect class="card" x="16" y="465" width="358" height="40" rx="6"/>
+    <text x="32" y="490" font-size="11">P3: Anjali, 34 · Middle → Middle</text>
+    <rect x="290" y="475" width="60" height="20" rx="10" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="320" y="489" text-anchor="middle" font-size="9" fill="#065F46" font-weight="700">High</text>
+
+    <text x="195" y="530" text-anchor="middle" font-size="11" fill="#6B7280">… 3 more (all High)</text>
+
+    <line class="anno-line" x1="195" y1="265" x2="450" y2="265"/>
+    <rect class="label-bg" x="450" y="245" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="262">Density management for groups.</text>
+    <text class="annotation" x="460" y="275">Default collapsed; expand for detail.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- BEFORE/AFTER                                                     -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1800)">
+    <text class="frame-title" x="0" y="20" fill="#DC2626">BEFORE / AFTER comparison</text>
+
+    <!-- BEFORE -->
+    <rect class="device" x="0" y="40" width="280" height="500" rx="12"/>
+    <rect class="frame" x="0" y="40" width="280" height="500" rx="12"/>
+    <rect x="0" y="40" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="0" y="60" width="280" height="20" fill="#1A237E"/>
+    <text x="140" y="69" font-size="13" fill="#FFFFFF" text-anchor="middle">Review</text>
+
+    <!-- truncated mobile review -->
+    <text x="20" y="120" font-size="11" font-weight="700">Passengers</text>
+    <text x="20" y="140" font-size="10" fill="#6B7280">Name      Age  Sex  Berth</text>
+    <text x="20" y="158" font-size="10">Ramesh    67   M    Lo…</text>
+    <text x="20" y="176" font-size="10">Sita      62   F    Lo…</text>
+
+    <text x="20" y="220" font-size="11" font-weight="700">Total ₹3,420</text>
+
+    <rect x="20" y="260" width="240" height="40" rx="8" fill="#1A237E"/>
+    <text x="140" y="285" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">Pay</text>
+
+    <text x="140" y="380" text-anchor="middle" font-size="13" fill="#DC2626">Berth column truncated.</text>
+    <text x="140" y="398" text-anchor="middle" font-size="11" fill="#6B7280">No allocation shown before pay.</text>
+    <text x="140" y="412" text-anchor="middle" font-size="11" fill="#6B7280">User finds out wrong berth in SMS.</text>
+    <text x="140" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#DC2626">BEFORE</text>
+
+    <text x="320" y="280" font-size="48" fill="#10B981">→</text>
+
+    <!-- AFTER (mini) -->
+    <rect class="device" x="370" y="40" width="280" height="500" rx="12"/>
+    <rect class="frame" x="370" y="40" width="280" height="500" rx="12"/>
+    <rect x="370" y="40" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="370" y="60" width="280" height="20" fill="#1A237E"/>
+    <text x="510" y="69" font-size="13" fill="#FFFFFF" text-anchor="middle">Review &amp; Pay</text>
+
+    <!-- mini allocation -->
+    <rect x="380" y="100" width="260" height="48" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="392" y="118" font-size="10" font-weight="700">Ramesh, 67</text>
+    <text x="392" y="132" font-size="9" fill="#6B7280">Lower → Lower (B4)</text>
+    <rect x="582" y="115" width="46" height="18" rx="9" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="605" y="127" text-anchor="middle" font-size="9" fill="#065F46" font-weight="700">High</text>
+
+    <rect x="380" y="155" width="260" height="48" rx="6" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="392" y="173" font-size="10" font-weight="700">Sita, 62</text>
+    <text x="392" y="187" font-size="9" fill="#92400E">Lower → Side Upper</text>
+    <rect x="572" y="170" width="56" height="18" rx="9" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="600" y="182" text-anchor="middle" font-size="9" fill="#92400E" font-weight="700">⚠</text>
+
+    <rect x="380" y="225" width="260" height="36" rx="6" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="510" y="247" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">Try different train</text>
+
+    <rect x="380" y="280" width="260" height="40" rx="6" fill="#1A237E"/>
+    <text x="510" y="305" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">Pay ₹3,420 (in 2s)</text>
+
+    <text x="510" y="380" text-anchor="middle" font-size="13" fill="#10B981">Allocation block per passenger.</text>
+    <text x="510" y="398" text-anchor="middle" font-size="11" fill="#6B7280">Mismatches highlighted before payment.</text>
+    <text x="510" y="412" text-anchor="middle" font-size="11" fill="#6B7280">Decision moves before money is debited.</text>
+    <text x="510" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#10B981">AFTER</text>
+  </g>
+</svg>

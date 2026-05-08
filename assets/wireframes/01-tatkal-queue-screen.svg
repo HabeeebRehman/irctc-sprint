@@ -1,0 +1,434 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400" font-family="Inter, system-ui, sans-serif">
+  <style>
+    .frame { fill: #FFFFFF; stroke: #1F2937; stroke-width: 2; }
+    .device { fill: #F9FAFB; stroke: #9CA3AF; stroke-width: 1; }
+    .header { fill: #1A237E; }
+    .card { fill: #FFFFFF; stroke: #E5E7EB; stroke-width: 1; }
+    .card-shadow { fill: #FFFFFF; stroke: #D1D5DB; stroke-width: 1; }
+    .accent-blue { fill: #1A237E; }
+    .accent-green { fill: #10B981; }
+    .accent-amber { fill: #F59E0B; }
+    .accent-red { fill: #EF4444; }
+    .accent-yellow { fill: #FEF3C7; stroke: #F59E0B; stroke-width: 1; }
+    .muted { fill: #6B7280; }
+    .light-grey { fill: #F3F4F6; }
+    .text-dark { fill: #111827; }
+    .text-light { fill: #FFFFFF; }
+    .text-muted { fill: #6B7280; }
+    .annotation { fill: #DC2626; font-style: italic; font-size: 11px; }
+    .anno-line { stroke: #DC2626; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }
+    .label-bg { fill: #FEF2F2; stroke: #DC2626; stroke-width: 1; }
+    .frame-title { fill: #111827; font-weight: 700; font-size: 18px; }
+    .state-label { fill: #4B5563; font-weight: 600; font-size: 13px; }
+    .h1 { font-size: 64px; font-weight: 800; fill: #1A237E; }
+    .h2 { font-size: 24px; font-weight: 700; fill: #111827; }
+    .h3 { font-size: 16px; font-weight: 600; fill: #111827; }
+    .body { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #6B7280; }
+    .tiny { font-size: 10px; fill: #6B7280; }
+    .pill-bg { fill: #ECFDF5; stroke: #10B981; stroke-width: 1; }
+    .pill-amber { fill: #FFFBEB; stroke: #F59E0B; stroke-width: 1; }
+    .pill-red { fill: #FEF2F2; stroke: #EF4444; stroke-width: 1; }
+  </style>
+
+  <!-- ===== TITLE BAR ===== -->
+  <rect x="0" y="0" width="1800" height="60" fill="#111827"/>
+  <text x="30" y="38" fill="#FFFFFF" font-size="20" font-weight="700">Spec 1 — Tatkal Virtual Queue</text>
+  <text x="30" y="55" fill="#9CA3AF" font-size="12">Mobile 390×844 (primary) · Desktop 1440×900 · States: Default / Slow / Sold-out / Loading / Reconnecting / Handoff</text>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE FRAME 1 — DEFAULT (Queue moving)                         -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Default state (queue moving)</text>
+    <text class="state-label" x="0" y="40">390 × 844</text>
+
+    <!-- device frame -->
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <!-- top status bar -->
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text class="text-light" x="20" y="93" font-size="13" font-weight="700">IRCTC</text>
+    <text class="text-light" x="155" y="93" font-size="14" font-weight="600">Tatkal Queue</text>
+    <rect x="305" y="78" width="70" height="22" rx="11" fill="#3949AB"/>
+    <text class="text-light" x="320" y="93" font-size="11" font-weight="600">10:01:47</text>
+
+    <!-- HERO BLOCK -->
+    <rect class="card-shadow" x="16" y="140" width="358" height="180" rx="12"/>
+    <text class="h1" x="195" y="220" text-anchor="middle">#45,820</text>
+    <text class="small" x="195" y="245" text-anchor="middle" font-size="13">Your position in queue</text>
+    <!-- pulse dot -->
+    <circle cx="50" cy="290" r="5" fill="#10B981"/>
+    <text x="65" y="295" font-size="11" fill="#10B981" font-weight="600">Live · updating</text>
+    <text x="340" y="295" font-size="20" fill="#10B981" font-weight="700" text-anchor="end">↓</text>
+
+    <!-- ESTIMATED WAIT -->
+    <rect class="card" x="16" y="335" width="358" height="100" rx="12"/>
+    <text x="32" y="365" font-size="11" fill="#6B7280" font-weight="600">ESTIMATED WAIT</text>
+    <text x="32" y="402" font-size="32" font-weight="700" fill="#111827">~4 min</text>
+    <!-- progress bar -->
+    <rect x="32" y="415" width="326" height="6" rx="3" fill="#E5E7EB"/>
+    <rect x="32" y="415" width="80" height="6" rx="3" fill="#1A237E"/>
+
+    <!-- USERS AHEAD -->
+    <text x="32" y="460" font-size="12" fill="#374151">45,819 users ahead · 12,400 admitted/min</text>
+
+    <!-- STATUS PILL -->
+    <rect class="pill-bg" x="16" y="478" width="160" height="28" rx="14"/>
+    <circle cx="32" cy="492" r="4" fill="#10B981"/>
+    <text x="44" y="496" font-size="12" fill="#065F46" font-weight="600">Holding your place</text>
+
+    <!-- TRAIN SUMMARY (collapsible) -->
+    <rect class="card" x="16" y="520" width="358" height="60" rx="8"/>
+    <text x="32" y="545" font-size="13" font-weight="700" fill="#111827">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="563" font-size="11" fill="#6B7280">NDLS → BCT · Wed, 13 May · 4 passengers</text>
+    <text x="358" y="555" font-size="14" fill="#6B7280" text-anchor="end">▾</text>
+
+    <!-- "What's happening?" expander -->
+    <rect class="card" x="16" y="595" width="358" height="44" rx="8"/>
+    <text x="32" y="622" font-size="13" font-weight="600" fill="#1A237E">What's happening?</text>
+    <text x="358" y="622" font-size="14" fill="#1A237E" text-anchor="end">▸</text>
+
+    <!-- Language switcher chip -->
+    <rect class="card" x="16" y="655" width="100" height="28" rx="14"/>
+    <text x="32" y="673" font-size="11" fill="#374151">🌐 English ▾</text>
+
+    <!-- STICKY BOTTOM WARNING -->
+    <rect class="accent-yellow" x="0" y="850" width="390" height="54"/>
+    <text x="20" y="876" font-size="13" font-weight="700" fill="#92400E">⚠ Refreshing or closing this</text>
+    <text x="20" y="893" font-size="13" font-weight="700" fill="#92400E">tab will release your place.</text>
+
+    <!-- annotations -->
+    <line class="anno-line" x1="195" y1="230" x2="-30" y2="230"/>
+    <rect class="label-bg" x="-200" y="220" width="220" height="36" rx="4"/>
+    <text class="annotation" x="-190" y="235">Live counter — websocket;</text>
+    <text class="annotation" x="-190" y="248">HTTP poll fallback at 3s</text>
+
+    <line class="anno-line" x1="32" y1="402" x2="-30" y2="430"/>
+    <rect class="label-bg" x="-220" y="420" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-210" y="435">Computed from rolling 30s</text>
+    <text class="annotation" x="-210" y="448">throughput; updates every 5s</text>
+
+    <line class="anno-line" x1="195" y1="877" x2="-30" y2="877"/>
+    <rect class="label-bg" x="-220" y="867" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-210" y="882">Sticky on mobile; persistent —</text>
+    <text class="annotation" x="-210" y="895">protects queue token integrity</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE FRAME 2 — SLOW (Amber)                                   -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Slow state (PRS lag)</text>
+    <text class="state-label" x="0" y="40">Amber banner — railways system slow</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <!-- header -->
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text class="text-light" x="20" y="93" font-size="13" font-weight="700">IRCTC</text>
+    <text class="text-light" x="155" y="93" font-size="14" font-weight="600">Tatkal Queue</text>
+
+    <!-- AMBER HERO -->
+    <rect class="card-shadow" x="16" y="140" width="358" height="180" rx="12"/>
+    <text class="h1" x="195" y="220" text-anchor="middle" fill="#F59E0B">#12,400</text>
+    <text class="small" x="195" y="245" text-anchor="middle" font-size="13">Your position — wait extending</text>
+
+    <!-- estimated wait higher -->
+    <rect class="card" x="16" y="335" width="358" height="100" rx="12"/>
+    <text x="32" y="365" font-size="11" fill="#6B7280" font-weight="600">ESTIMATED WAIT</text>
+    <text x="32" y="402" font-size="32" font-weight="700" fill="#F59E0B">~9 min</text>
+    <rect x="32" y="415" width="326" height="6" rx="3" fill="#E5E7EB"/>
+    <rect x="32" y="415" width="40" height="6" rx="3" fill="#F59E0B"/>
+
+    <text x="32" y="460" font-size="12" fill="#374151">12,399 ahead · 2,800 admitted/min ▼</text>
+
+    <!-- AMBER STATUS PILL -->
+    <rect class="pill-amber" x="16" y="478" width="280" height="28" rx="14"/>
+    <circle cx="32" cy="492" r="4" fill="#F59E0B"/>
+    <text x="44" y="496" font-size="12" fill="#92400E" font-weight="600">Railways system slow — place held</text>
+
+    <!-- amber explanation card -->
+    <rect class="pill-amber" x="16" y="520" width="358" height="80" rx="8"/>
+    <text x="32" y="545" font-size="12" font-weight="700" fill="#92400E">Why is this slow?</text>
+    <text x="32" y="565" font-size="11" fill="#92400E">Railways PRS is responding slower</text>
+    <text x="32" y="580" font-size="11" fill="#92400E">than usual. Your place is held —</text>
+    <text x="32" y="595" font-size="11" fill="#92400E">do not refresh.</text>
+
+    <!-- train summary -->
+    <rect class="card" x="16" y="615" width="358" height="60" rx="8"/>
+    <text x="32" y="640" font-size="13" font-weight="700" fill="#111827">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="658" font-size="11" fill="#6B7280">NDLS → BCT · Wed, 13 May · 4 passengers</text>
+
+    <!-- bottom warning -->
+    <rect class="accent-yellow" x="0" y="850" width="390" height="54"/>
+    <text x="20" y="876" font-size="13" font-weight="700" fill="#92400E">⚠ Place held even during slow</text>
+    <text x="20" y="893" font-size="13" font-weight="700" fill="#92400E">response. Token does not expire.</text>
+
+    <!-- annotation -->
+    <line class="anno-line" x1="200" y1="492" x2="200" y2="450"/>
+    <rect class="label-bg" x="100" y="430" width="240" height="20" rx="4"/>
+    <text class="annotation" x="110" y="445">Token does NOT expire while PRS lags</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE FRAME 3 — SOLD OUT (Red)                                 -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Sold-out state (terminal)</text>
+    <text class="state-label" x="0" y="40">Red status — pivot CTA visible</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text class="text-light" x="20" y="93" font-size="13" font-weight="700">IRCTC</text>
+    <text class="text-light" x="155" y="93" font-size="14" font-weight="600">Tatkal Queue</text>
+
+    <rect class="card-shadow" x="16" y="140" width="358" height="200" rx="12"/>
+    <text x="195" y="195" text-anchor="middle" font-size="48">😔</text>
+    <text x="195" y="240" text-anchor="middle" font-size="20" font-weight="700" fill="#EF4444">Tatkal seats sold out</text>
+    <text x="195" y="265" text-anchor="middle" font-size="13" fill="#6B7280">for 12951 Mumbai Rajdhani</text>
+    <text x="195" y="290" text-anchor="middle" font-size="12" fill="#6B7280">Sold out at #18,200</text>
+    <text x="195" y="310" text-anchor="middle" font-size="12" fill="#6B7280">(you reached #45,820)</text>
+
+    <!-- RED STATUS PILL -->
+    <rect class="pill-red" x="16" y="360" width="200" height="28" rx="14"/>
+    <circle cx="32" cy="374" r="4" fill="#EF4444"/>
+    <text x="44" y="378" font-size="12" fill="#991B1B" font-weight="600">Tatkal sold out</text>
+
+    <!-- alternates list -->
+    <text x="20" y="420" font-size="13" font-weight="700" fill="#111827">Other Tatkal trains NDLS → BCT:</text>
+
+    <rect class="card" x="16" y="435" width="358" height="56" rx="8"/>
+    <text x="32" y="458" font-size="13" font-weight="700" fill="#111827">12953 August Kranti</text>
+    <text x="32" y="476" font-size="11" fill="#10B981">3A: 18 available · 2A: 6 available</text>
+    <text x="345" y="468" font-size="14" fill="#1A237E" text-anchor="end" font-weight="700">→</text>
+
+    <rect class="card" x="16" y="500" width="358" height="56" rx="8"/>
+    <text x="32" y="523" font-size="13" font-weight="700" fill="#111827">22209 Duronto</text>
+    <text x="32" y="541" font-size="11" fill="#F59E0B">3A: 4 available · 2A: full</text>
+    <text x="345" y="533" font-size="14" fill="#1A237E" text-anchor="end" font-weight="700">→</text>
+
+    <!-- PIVOT CTA -->
+    <rect x="16" y="585" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="615" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">View all alternates</text>
+
+    <!-- secondary -->
+    <text x="195" y="665" text-anchor="middle" font-size="12" fill="#6B7280">or try Premium Tatkal (higher fare)</text>
+
+    <!-- annotation -->
+    <line class="anno-line" x1="195" y1="611" x2="450" y2="611"/>
+    <rect class="label-bg" x="450" y="600" width="200" height="36" rx="4"/>
+    <text class="annotation" x="460" y="615">One-tap pivot — reuses</text>
+    <text class="annotation" x="460" y="628">existing route + date</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE FRAMES 4-5 — LOADING + RECONNECTING                      -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Loading state</text>
+    <text class="state-label" x="0" y="40">Skeleton — before first position arrives</text>
+
+    <rect class="device" x="0" y="60" width="390" height="600" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="600" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text class="text-light" x="155" y="93" font-size="14" font-weight="600">Tatkal Queue</text>
+
+    <!-- skeleton hero -->
+    <rect class="card-shadow" x="16" y="140" width="358" height="180" rx="12"/>
+    <rect x="100" y="190" width="190" height="64" rx="8" fill="#E5E7EB">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="120" y="270" width="150" height="14" rx="4" fill="#E5E7EB"/>
+
+    <text x="195" y="380" text-anchor="middle" font-size="13" fill="#6B7280">Joining queue…</text>
+    <circle cx="195" cy="400" r="4" fill="#1A237E">
+      <animate attributeName="r" values="3;6;3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(540, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Reconnecting state</text>
+    <text class="state-label" x="0" y="40">Websocket dropped — polling fallback</text>
+
+    <rect class="device" x="0" y="60" width="390" height="600" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="600" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text class="text-light" x="155" y="93" font-size="14" font-weight="600">Tatkal Queue</text>
+
+    <rect class="card-shadow" x="16" y="140" width="358" height="180" rx="12"/>
+    <text class="h1" x="195" y="220" text-anchor="middle">#12,840</text>
+    <text class="small" x="195" y="245" text-anchor="middle" font-size="13">Your position in queue</text>
+
+    <!-- reconnecting chip -->
+    <rect x="16" y="340" width="180" height="28" rx="14" fill="#FEF3C7" stroke="#F59E0B"/>
+    <circle cx="32" cy="354" r="4" fill="#F59E0B">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="44" y="358" font-size="12" fill="#92400E" font-weight="600">Reconnecting…</text>
+
+    <text x="20" y="400" font-size="11" fill="#6B7280">Switched to backup polling.</text>
+    <text x="20" y="416" font-size="11" fill="#6B7280">Position still tracked — your</text>
+    <text x="20" y="432" font-size="11" fill="#6B7280">place is safe.</text>
+
+    <line class="anno-line" x1="100" y1="354" x2="0" y2="500"/>
+    <rect class="label-bg" x="-30" y="490" width="240" height="36" rx="4"/>
+    <text class="annotation" x="-20" y="505">Server-side position is source of</text>
+    <text class="annotation" x="-20" y="518">truth — client cannot lose place</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MOBILE FRAME 6 — HANDOFF                                        -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Handoff state (position = 0)</text>
+    <text class="state-label" x="0" y="40">Transitioning to passenger entry</text>
+
+    <rect class="device" x="0" y="60" width="390" height="600" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="600" rx="20"/>
+
+    <rect x="0" y="60" width="390" height="600" rx="20" fill="#10B981" opacity="0.95"/>
+
+    <text x="195" y="220" text-anchor="middle" font-size="48" fill="#FFFFFF">✓</text>
+    <text x="195" y="280" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">It's your turn</text>
+    <text x="195" y="320" text-anchor="middle" font-size="14" fill="#FFFFFF">Opening passenger details…</text>
+
+    <!-- 90s hold timer -->
+    <rect x="40" y="380" width="310" height="60" rx="8" fill="#FFFFFF"/>
+    <text x="195" y="405" text-anchor="middle" font-size="12" fill="#6B7280" font-weight="600">SEAT INVENTORY HOLD</text>
+    <text x="195" y="430" text-anchor="middle" font-size="20" font-weight="700" fill="#10B981">1:30 remaining</text>
+
+    <text x="195" y="490" text-anchor="middle" font-size="11" fill="#FFFFFF">Tatkal seats locked for you</text>
+    <text x="195" y="506" text-anchor="middle" font-size="11" fill="#FFFFFF">for the next 90 seconds.</text>
+
+    <!-- annotation -->
+    <line class="anno-line" x1="350" y1="420" x2="500" y2="420"/>
+    <rect class="label-bg" x="500" y="390" width="220" height="60" rx="4"/>
+    <text class="annotation" x="510" y="408">90-second PRS soft-lock prevents</text>
+    <text class="annotation" x="510" y="421">queue token redemption races.</text>
+    <text class="annotation" x="510" y="434">Releases automatically if user</text>
+    <text class="annotation" x="510" y="447">does not submit form.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- DESKTOP FRAME — Default state                                   -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1700)">
+    <text class="frame-title" x="0" y="20">Desktop · Default state (queue moving)</text>
+    <text class="state-label" x="0" y="40">1440 × 900 — wider hero, side-by-side layout</text>
+
+    <rect class="device" x="0" y="60" width="1440" height="650" rx="8"/>
+    <rect class="frame" x="0" y="60" width="1440" height="650" rx="8"/>
+
+    <!-- top bar -->
+    <rect class="header" x="0" y="60" width="1440" height="64" rx="8"/>
+    <rect class="header" x="0" y="100" width="1440" height="24"/>
+    <text class="text-light" x="40" y="98" font-size="18" font-weight="700">IRCTC</text>
+    <text class="text-light" x="690" y="98" font-size="16" font-weight="600">Tatkal Queue</text>
+    <rect x="1280" y="80" width="120" height="32" rx="16" fill="#3949AB"/>
+    <text class="text-light" x="1340" y="100" font-size="13" text-anchor="middle" font-weight="600">10:01:47 IST</text>
+
+    <!-- main 2-column -->
+    <!-- LEFT — hero block -->
+    <rect class="card-shadow" x="60" y="160" width="700" height="380" rx="16"/>
+    <text x="410" y="280" text-anchor="middle" font-size="96" font-weight="800" fill="#1A237E">#45,820</text>
+    <text x="410" y="320" text-anchor="middle" font-size="16" fill="#6B7280">Your position in queue</text>
+    <text x="410" y="380" text-anchor="middle" font-size="20" font-weight="700" fill="#10B981">↓ moving</text>
+    <text x="410" y="420" text-anchor="middle" font-size="13" fill="#6B7280">45,819 users ahead · 12,400 admitted/min</text>
+
+    <!-- live indicator -->
+    <circle cx="120" cy="490" r="6" fill="#10B981">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="135" y="495" font-size="13" fill="#10B981" font-weight="600">Live · holding your place</text>
+
+    <!-- RIGHT — wait + status + train + warning -->
+    <rect class="card" x="790" y="160" width="590" height="120" rx="12"/>
+    <text x="810" y="190" font-size="12" fill="#6B7280" font-weight="600">ESTIMATED WAIT</text>
+    <text x="810" y="240" font-size="48" font-weight="700" fill="#111827">~4 min</text>
+    <rect x="810" y="252" width="550" height="8" rx="4" fill="#E5E7EB"/>
+    <rect x="810" y="252" width="140" height="8" rx="4" fill="#1A237E"/>
+
+    <rect class="card" x="790" y="300" width="590" height="100" rx="12"/>
+    <text x="810" y="328" font-size="14" font-weight="700" fill="#111827">12951 Mumbai Rajdhani Express · 3A</text>
+    <text x="810" y="350" font-size="12" fill="#6B7280">NDLS New Delhi → BCT Mumbai Central</text>
+    <text x="810" y="370" font-size="12" fill="#6B7280">Wed, 13 May 2026 · 4 passengers · ₹3,420</text>
+
+    <!-- warning banner -->
+    <rect class="accent-yellow" x="790" y="420" width="590" height="60" rx="8"/>
+    <text x="810" y="448" font-size="14" font-weight="700" fill="#92400E">⚠ Refreshing or closing this tab will release your place.</text>
+    <text x="810" y="468" font-size="12" fill="#92400E">You are #45,820. Stay on this page — we'll move you forward automatically.</text>
+
+    <!-- annotations on desktop -->
+    <line class="anno-line" x1="410" y1="280" x2="410" y2="640"/>
+    <rect class="label-bg" x="280" y="640" width="280" height="40" rx="4"/>
+    <text class="annotation" x="290" y="658">Hero anchor — page-defining number.</text>
+    <text class="annotation" x="290" y="672">Same component on mobile (64px) and desktop (96px).</text>
+
+    <line class="anno-line" x1="1080" y1="445" x2="1080" y2="640"/>
+    <rect class="label-bg" x="940" y="640" width="280" height="40" rx="4"/>
+    <text class="annotation" x="950" y="658">Sticky on mobile, above-fold on desktop.</text>
+    <text class="annotation" x="950" y="672">Same copy across both viewports.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- BEFORE/AFTER COMPARISON                                          -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 1700)">
+    <text class="frame-title" x="0" y="20" fill="#DC2626">BEFORE / AFTER comparison</text>
+    <text class="state-label" x="0" y="40">Today vs proposed</text>
+
+    <!-- BEFORE -->
+    <rect class="device" x="0" y="60" width="280" height="500" rx="12"/>
+    <rect class="frame" x="0" y="60" width="280" height="500" rx="12"/>
+    <rect x="0" y="60" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="0" y="80" width="280" height="20" fill="#1A237E"/>
+    <text x="140" y="89" font-size="13" fill="#FFFFFF" text-anchor="middle">IRCTC</text>
+
+    <!-- white frozen screen with spinner -->
+    <text x="140" y="280" text-anchor="middle" font-size="32" fill="#9CA3AF">⏳</text>
+    <text x="140" y="320" text-anchor="middle" font-size="13" fill="#6B7280">Loading, please wait</text>
+    <text x="140" y="340" text-anchor="middle" font-size="11" fill="#9CA3AF">(no further info)</text>
+
+    <text x="140" y="590" text-anchor="middle" font-size="14" fill="#DC2626" font-weight="700">BEFORE</text>
+    <text x="140" y="610" text-anchor="middle" font-size="11" fill="#6B7280">Zero feedback. No queue position.</text>
+    <text x="140" y="624" text-anchor="middle" font-size="11" fill="#6B7280">No wait estimate. User refreshes blindly.</text>
+
+    <!-- arrow -->
+    <text x="320" y="320" font-size="48" fill="#10B981">→</text>
+
+    <!-- AFTER (mini) -->
+    <rect class="device" x="370" y="60" width="280" height="500" rx="12"/>
+    <rect class="frame" x="370" y="60" width="280" height="500" rx="12"/>
+    <rect x="370" y="60" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="370" y="80" width="280" height="20" fill="#1A237E"/>
+    <text x="510" y="89" font-size="13" fill="#FFFFFF" text-anchor="middle">Tatkal Queue</text>
+
+    <text x="510" y="200" text-anchor="middle" font-size="42" font-weight="800" fill="#1A237E">#45,820</text>
+    <text x="510" y="225" text-anchor="middle" font-size="11" fill="#6B7280">Your position in queue</text>
+
+    <text x="510" y="280" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">~4 min</text>
+    <text x="510" y="300" text-anchor="middle" font-size="11" fill="#6B7280">estimated wait</text>
+
+    <rect x="400" y="330" width="220" height="24" rx="12" fill="#ECFDF5" stroke="#10B981"/>
+    <text x="510" y="346" text-anchor="middle" font-size="11" fill="#065F46" font-weight="600">● Holding your place</text>
+
+    <rect x="370" y="510" width="280" height="40" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="510" y="535" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">⚠ Don't refresh</text>
+
+    <text x="510" y="590" text-anchor="middle" font-size="14" fill="#10B981" font-weight="700">AFTER</text>
+    <text x="510" y="610" text-anchor="middle" font-size="11" fill="#6B7280">Position, wait estimate, status,</text>
+    <text x="510" y="624" text-anchor="middle" font-size="11" fill="#6B7280">no-refresh contract — all visible.</text>
+  </g>
+</svg>
