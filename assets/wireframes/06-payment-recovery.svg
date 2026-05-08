@@ -1,0 +1,442 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400" font-family="Inter, system-ui, sans-serif">
+  <style>
+    .frame { fill: #FFFFFF; stroke: #1F2937; stroke-width: 2; }
+    .device { fill: #F9FAFB; stroke: #9CA3AF; stroke-width: 1; }
+    .header { fill: #1A237E; }
+    .card { fill: #FFFFFF; stroke: #E5E7EB; stroke-width: 1; }
+    .annotation { fill: #DC2626; font-style: italic; font-size: 11px; }
+    .anno-line { stroke: #DC2626; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }
+    .label-bg { fill: #FEF2F2; stroke: #DC2626; stroke-width: 1; }
+    .frame-title { fill: #111827; font-weight: 700; font-size: 18px; }
+    .state-label { fill: #4B5563; font-weight: 600; font-size: 13px; }
+    .url-bar { fill: #F3F4F6; stroke: #D1D5DB; }
+    .url-text { font-family: 'SF Mono', Monaco, monospace; font-size: 10px; fill: #1F2937; }
+    .mono { font-family: 'SF Mono', Monaco, monospace; }
+  </style>
+
+  <rect x="0" y="0" width="1800" height="60" fill="#111827"/>
+  <text x="30" y="38" fill="#FFFFFF" font-size="20" font-weight="700">Spec 6 — Transaction-Aware Sessions + Payment Recovery Screen</text>
+  <text x="30" y="55" fill="#9CA3AF" font-size="12">URL: /recover/:transaction_id · States: Confirming / Booked / Failed-refund-initiated / Failed-refund-completed / Refund-stuck / No-money-debited</text>
+
+  <!-- ============================================================== -->
+  <!-- STATE 1 — CONFIRMING (yellow, polling)                          -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Confirming state</text>
+    <text class="state-label" x="0" y="40">Auto-polling every 5s — no back arrow (engage)</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <!-- url bar -->
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 irctc.co.in/recover/TXN-2026-XYZ</text>
+
+    <!-- header (no back arrow) -->
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="20" y="143" font-size="16" font-weight="700" fill="#FFFFFF">IRCTC</text>
+    <text x="155" y="143" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <!-- STATUS BLOCK — yellow confirming -->
+    <rect x="16" y="184" width="358" height="180" rx="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <!-- spinner -->
+    <circle cx="195" cy="226" r="20" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="60 30">
+      <animateTransform attributeName="transform" type="rotate" from="0 195 226" to="360 195 226" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="195" y="284" text-anchor="middle" font-size="18" font-weight="800" fill="#92400E">Confirming your booking</text>
+    <text x="195" y="306" text-anchor="middle" font-size="13" fill="#92400E">with Railways…</text>
+    <text x="195" y="334" text-anchor="middle" font-size="11" fill="#92400E">This usually takes 30 seconds.</text>
+    <text x="195" y="350" text-anchor="middle" font-size="11" fill="#92400E" font-weight="700">Don't close this page.</text>
+
+    <!-- TRANSACTION DETAILS -->
+    <text x="20" y="395" font-size="11" font-weight="700" fill="#6B7280">PAYMENT</text>
+
+    <rect class="card" x="16" y="408" width="358" height="120" rx="8"/>
+    <text x="32" y="432" font-size="11" fill="#6B7280">Amount debited</text>
+    <text x="345" y="432" font-size="13" font-weight="700" text-anchor="end">₹3,420</text>
+
+    <text x="32" y="456" font-size="11" fill="#6B7280">Time</text>
+    <text x="345" y="456" font-size="11" text-anchor="end">14:23 · 8 May 2026</text>
+
+    <text x="32" y="482" font-size="11" fill="#6B7280">Transaction ID</text>
+    <text class="mono" x="280" y="482" font-size="11" text-anchor="end" fill="#111827">TXN-2026-XYZ</text>
+    <rect x="290" y="471" width="60" height="22" rx="11" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="320" y="486" text-anchor="middle" font-size="10" fill="#1A237E" font-weight="600">📋 Copy</text>
+
+    <text x="32" y="510" font-size="11" fill="#6B7280">Bank reference</text>
+    <text class="mono" x="280" y="510" font-size="11" text-anchor="end" fill="#111827">RZP-987654321</text>
+    <rect x="290" y="499" width="60" height="22" rx="11" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="320" y="514" text-anchor="middle" font-size="10" fill="#1A237E" font-weight="600">📋 Copy</text>
+
+    <!-- BOOKING ATTEMPT -->
+    <text x="20" y="558" font-size="11" font-weight="700" fill="#6B7280">BOOKING ATTEMPT</text>
+
+    <rect class="card" x="16" y="571" width="358" height="80" rx="8"/>
+    <text x="32" y="594" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="613" font-size="11" fill="#6B7280">NDLS New Delhi → BCT Mumbai Central</text>
+    <text x="32" y="631" font-size="11" fill="#6B7280">13 May 2026 · 4 passengers</text>
+
+    <!-- ACTION BUTTON — Refresh -->
+    <rect x="16" y="682" width="358" height="48" rx="8" fill="#F59E0B"/>
+    <text x="195" y="712" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">↻ Refresh status</text>
+    <text x="195" y="746" text-anchor="middle" font-size="10" fill="#92400E">Auto-refreshing every 5s</text>
+
+    <!-- support footer -->
+    <rect x="16" y="780" width="358" height="60" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+    <text x="32" y="803" font-size="11" fill="#374151">Something not right?</text>
+    <text x="32" y="822" font-size="11" fill="#1A237E" font-weight="600" text-decoration="underline">Contact support — case ID pre-filled</text>
+
+    <line class="anno-line" x1="195" y1="93" x2="195" y2="-30"/>
+    <rect class="label-bg" x="40" y="-50" width="320" height="40" rx="4"/>
+    <text class="annotation" x="50" y="-32">Deep-linkable URL — user can return to</text>
+    <text class="annotation" x="50" y="-18">this screen from any device after re-auth.</text>
+
+    <line class="anno-line" x1="195" y1="143" x2="450" y2="143"/>
+    <rect class="label-bg" x="450" y="123" width="240" height="40" rx="4"/>
+    <text class="annotation" x="460" y="140">No back arrow — we want users to</text>
+    <text class="annotation" x="460" y="153">engage with this screen, not flee.</text>
+
+    <line class="anno-line" x1="320" y1="482" x2="450" y2="482"/>
+    <rect class="label-bg" x="450" y="462" width="240" height="40" rx="4"/>
+    <text class="annotation" x="460" y="479">Copy buttons — every support call</text>
+    <text class="annotation" x="460" y="492">starts with user already having ID.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STATE 2 — BOOKED (green success)                                -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Booked state (success)</text>
+    <text class="state-label" x="0" y="40">Polling resolved — PNR confirmed</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 irctc.co.in/recover/TXN-2026-XYZ</text>
+
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="20" y="143" font-size="16" font-weight="700" fill="#FFFFFF">IRCTC</text>
+    <text x="155" y="143" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <!-- GREEN SUCCESS BLOCK -->
+    <rect x="16" y="184" width="358" height="180" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <circle cx="195" cy="226" r="24" fill="#10B981"/>
+    <text x="195" y="234" text-anchor="middle" font-size="28" fill="#FFFFFF" font-weight="700">✓</text>
+    <text x="195" y="284" text-anchor="middle" font-size="20" font-weight="800" fill="#065F46">Booked!</text>
+    <text x="195" y="312" text-anchor="middle" font-size="13" fill="#065F46">PNR</text>
+    <text class="mono" x="195" y="338" text-anchor="middle" font-size="20" fill="#065F46" font-weight="700">1234567890</text>
+
+    <!-- payment summary -->
+    <rect class="card" x="16" y="380" width="358" height="100" rx="8"/>
+    <text x="32" y="404" font-size="11" fill="#6B7280">Amount</text>
+    <text x="345" y="404" font-size="13" font-weight="700" text-anchor="end">₹3,420 · Paid</text>
+
+    <text x="32" y="430" font-size="11" fill="#6B7280">Transaction ID</text>
+    <text class="mono" x="345" y="430" font-size="11" text-anchor="end">TXN-2026-XYZ</text>
+
+    <text x="32" y="456" font-size="11" fill="#6B7280">Confirmed at</text>
+    <text x="345" y="456" font-size="11" text-anchor="end">14:24 · 8 May</text>
+
+    <!-- booking summary -->
+    <rect class="card" x="16" y="500" width="358" height="80" rx="8"/>
+    <text x="32" y="523" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="542" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · 4 passengers</text>
+    <text x="32" y="560" font-size="11" fill="#10B981" font-weight="700">All 4 passengers confirmed ✓</text>
+
+    <!-- ACTIONS -->
+    <rect x="16" y="610" width="358" height="48" rx="8" fill="#10B981"/>
+    <text x="195" y="640" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">View ticket</text>
+
+    <rect x="16" y="668" width="358" height="44" rx="8" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="694" text-anchor="middle" font-size="13" fill="#1A237E" font-weight="700">Done</text>
+
+    <line class="anno-line" x1="195" y1="284" x2="-30" y2="284"/>
+    <rect class="label-bg" x="-220" y="264" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="281">Celebratory — but not over-the-top.</text>
+    <text class="annotation" x="-210" y="294">Same recovery screen surface, success state.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STATE 3 — FAILED, REFUND INITIATED (amber, not red)             -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Failed · Refund initiated</text>
+    <text class="state-label" x="0" y="40">AMBER not red — recoverable, not catastrophic</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="url-bar" x="20" y="78" width="350" height="22" rx="11"/>
+    <text class="url-text" x="32" y="93">🔒 irctc.co.in/recover/TXN-2026-XYZ</text>
+
+    <rect class="header" x="0" y="108" width="390" height="56"/>
+    <text x="20" y="143" font-size="16" font-weight="700" fill="#FFFFFF">IRCTC</text>
+    <text x="155" y="143" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <!-- AMBER NOT RED FAILED BLOCK -->
+    <rect x="16" y="184" width="358" height="200" rx="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <circle cx="195" cy="226" r="24" fill="#F59E0B"/>
+    <text x="195" y="234" text-anchor="middle" font-size="28" fill="#FFFFFF" font-weight="700">!</text>
+    <text x="195" y="284" text-anchor="middle" font-size="18" font-weight="800" fill="#92400E">Booking did not complete</text>
+    <text x="195" y="312" text-anchor="middle" font-size="13" fill="#92400E">Your money is safe.</text>
+    <text x="195" y="332" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">Refund initiated.</text>
+    <text x="195" y="360" text-anchor="middle" font-size="11" fill="#92400E">Expected in 3–5 working days</text>
+
+    <!-- transaction details -->
+    <rect class="card" x="16" y="402" width="358" height="120" rx="8"/>
+    <text x="32" y="426" font-size="11" fill="#6B7280">Amount</text>
+    <text x="345" y="426" font-size="13" font-weight="700" text-anchor="end">₹3,420 · Debited</text>
+
+    <text x="32" y="450" font-size="11" fill="#6B7280">Refund status</text>
+    <text x="345" y="450" font-size="11" font-weight="700" fill="#F59E0B" text-anchor="end">● Initiated 14:25</text>
+
+    <text x="32" y="476" font-size="11" fill="#6B7280">Transaction ID</text>
+    <text class="mono" x="345" y="476" font-size="11" text-anchor="end">TXN-2026-XYZ</text>
+
+    <text x="32" y="502" font-size="11" fill="#6B7280">Bank reference</text>
+    <text class="mono" x="345" y="502" font-size="11" text-anchor="end">RZP-987654321</text>
+
+    <!-- booking attempt -->
+    <rect class="card" x="16" y="540" width="358" height="80" rx="8"/>
+    <text x="32" y="563" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="582" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · 4 passengers</text>
+    <text x="32" y="600" font-size="11" fill="#92400E">Inventory was full when we tried</text>
+
+    <!-- RETRY BOOKING — primary -->
+    <rect x="16" y="640" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="664" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Retry booking</text>
+    <text x="195" y="681" text-anchor="middle" font-size="9" fill="#C5CAE9">Uses same transaction · No re-charge</text>
+
+    <!-- TRACK REFUND — secondary -->
+    <rect x="16" y="698" width="358" height="44" rx="8" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="724" text-anchor="middle" font-size="13" fill="#1A237E" font-weight="700">Track refund</text>
+
+    <!-- support -->
+    <rect x="16" y="752" width="358" height="60" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+    <text x="32" y="775" font-size="11" fill="#374151">Need help? Case ID pre-filled:</text>
+    <text class="mono" x="32" y="794" font-size="10" fill="#1A237E" font-weight="700">TXN-2026-XYZ</text>
+    <text x="345" y="794" font-size="11" fill="#1A237E" font-weight="600" text-anchor="end">Contact →</text>
+
+    <line class="anno-line" x1="195" y1="226" x2="-30" y2="226"/>
+    <rect class="label-bg" x="-220" y="206" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="223">Amber not red — crisis is</text>
+    <text class="annotation" x="-210" y="236">recoverable. Colour signals it.</text>
+
+    <line class="anno-line" x1="195" y1="681" x2="450" y2="681"/>
+    <rect class="label-bg" x="450" y="661" width="240" height="40" rx="4"/>
+    <text class="annotation" x="460" y="678">Idempotent retry — uses existing</text>
+    <text class="annotation" x="460" y="691">transaction. Bank does NOT re-charge.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STATE 4 — REFUND COMPLETED                                      -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Failed · Refund completed</text>
+    <text class="state-label" x="0" y="40">Final state — refund credited</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <rect x="16" y="140" width="358" height="180" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <circle cx="195" cy="180" r="22" fill="#10B981"/>
+    <text x="195" y="188" text-anchor="middle" font-size="22" fill="#FFFFFF" font-weight="700">✓</text>
+    <text x="195" y="232" text-anchor="middle" font-size="18" font-weight="800" fill="#065F46">Refund credited</text>
+    <text x="195" y="258" text-anchor="middle" font-size="13" fill="#065F46">₹3,420 returned to your account</text>
+    <text x="195" y="285" text-anchor="middle" font-size="11" fill="#065F46">Credited 11 May, 16:42</text>
+
+    <!-- timeline of refund status -->
+    <rect class="card" x="16" y="340" width="358" height="160" rx="8"/>
+    <text x="32" y="363" font-size="11" font-weight="700" fill="#6B7280">REFUND TIMELINE</text>
+
+    <circle cx="40" cy="395" r="6" fill="#10B981"/>
+    <text x="56" y="399" font-size="12" fill="#374151">Initiated by IRCTC</text>
+    <text x="345" y="399" font-size="10" fill="#6B7280" text-anchor="end">8 May 14:25</text>
+
+    <line x1="40" y1="402" x2="40" y2="425" stroke="#10B981" stroke-width="2"/>
+    <circle cx="40" cy="430" r="6" fill="#10B981"/>
+    <text x="56" y="434" font-size="12" fill="#374151">Bank acknowledged</text>
+    <text x="345" y="434" font-size="10" fill="#6B7280" text-anchor="end">9 May 09:12</text>
+
+    <line x1="40" y1="437" x2="40" y2="460" stroke="#10B981" stroke-width="2"/>
+    <circle cx="40" cy="465" r="6" fill="#10B981"/>
+    <text x="56" y="469" font-size="12" font-weight="700" fill="#065F46">Credited to account</text>
+    <text x="345" y="469" font-size="10" fill="#10B981" text-anchor="end" font-weight="700">11 May 16:42</text>
+
+    <!-- ACTIONS -->
+    <rect x="16" y="530" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="560" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Book again</text>
+
+    <rect x="16" y="588" width="358" height="44" rx="8" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="614" text-anchor="middle" font-size="13" fill="#1A237E" font-weight="700">Done</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STATE 5 — REFUND STUCK > 24h                                    -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Refund stuck &gt; 24h</text>
+    <text class="state-label" x="0" y="40">Escalation path visible</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <rect x="16" y="140" width="358" height="160" rx="12" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="195" y="180" text-anchor="middle" font-size="32" fill="#EF4444">⚠</text>
+    <text x="195" y="220" text-anchor="middle" font-size="18" font-weight="800" fill="#991B1B">Refund taking longer</text>
+    <text x="195" y="240" text-anchor="middle" font-size="18" font-weight="800" fill="#991B1B">than expected</text>
+    <text x="195" y="270" text-anchor="middle" font-size="11" fill="#991B1B">Initiated 26 hours ago — bank not responding</text>
+
+    <!-- escalate -->
+    <rect class="card" x="16" y="320" width="358" height="100" rx="8"/>
+    <text x="32" y="345" font-size="13" font-weight="700">We've escalated this case</text>
+    <text x="32" y="365" font-size="11" fill="#6B7280">A senior agent has been assigned.</text>
+    <text x="32" y="383" font-size="11" fill="#6B7280">Expected resolution: within 24 hours.</text>
+    <text x="32" y="405" font-size="11" font-weight="700" fill="#1A237E">Case ID: ESC-TXN-2026-XYZ</text>
+
+    <!-- direct contact -->
+    <rect x="16" y="440" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="470" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="700">📞 Call escalation desk</text>
+
+    <rect x="16" y="498" width="358" height="44" rx="8" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="524" text-anchor="middle" font-size="12" fill="#1A237E" font-weight="700">Email RBI ombudsman if unresolved</text>
+
+    <line class="anno-line" x1="195" y1="220" x2="450" y2="220"/>
+    <rect class="label-bg" x="450" y="200" width="240" height="40" rx="4"/>
+    <text class="annotation" x="460" y="217">RBI mandates 5–7 working days</text>
+    <text class="annotation" x="460" y="230">but escalation triggers at 24h.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- STATE 6 — NO MONEY DEBITED                                      -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · No money debited</text>
+    <text class="state-label" x="0" y="40">Reassurance — clean state</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56"/>
+    <text x="155" y="93" font-size="14" font-weight="600" fill="#FFFFFF">Payment Recovery</text>
+
+    <rect x="16" y="140" width="358" height="180" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <circle cx="195" cy="180" r="22" fill="#10B981"/>
+    <text x="195" y="188" text-anchor="middle" font-size="22" fill="#FFFFFF" font-weight="700">✓</text>
+    <text x="195" y="232" text-anchor="middle" font-size="18" font-weight="800" fill="#065F46">No money debited</text>
+    <text x="195" y="262" text-anchor="middle" font-size="13" fill="#065F46">Payment was cancelled or failed</text>
+    <text x="195" y="280" text-anchor="middle" font-size="13" fill="#065F46">before bank could process it.</text>
+    <text x="195" y="305" text-anchor="middle" font-size="11" fill="#065F46">No refund needed.</text>
+
+    <!-- explanation -->
+    <rect class="card" x="16" y="340" width="358" height="80" rx="8"/>
+    <text x="32" y="363" font-size="12" font-weight="700">What happened?</text>
+    <text x="32" y="383" font-size="11" fill="#6B7280">Your bank rejected the request, or you</text>
+    <text x="32" y="399" font-size="11" fill="#6B7280">cancelled the UPI confirmation. No charge.</text>
+
+    <!-- restart booking -->
+    <rect x="16" y="445" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="475" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">Try booking again</text>
+
+    <rect x="16" y="503" width="358" height="44" rx="8" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="195" y="529" text-anchor="middle" font-size="13" fill="#1A237E" font-weight="700">Use a different payment method</text>
+
+    <line class="anno-line" x1="195" y1="232" x2="-30" y2="232"/>
+    <rect class="label-bg" x="-220" y="212" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="229">Honest "no charge" — distinct from</text>
+    <text class="annotation" x="-210" y="242">"refund initiated". Different copy, different state.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- DESKTOP — Confirming                                            -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1820)">
+    <text class="frame-title" x="0" y="20">Desktop · Confirming state</text>
+    <text class="state-label" x="0" y="40">Wider layout — same content blocks</text>
+
+    <rect class="device" x="0" y="60" width="1440" height="500" rx="8"/>
+    <rect class="frame" x="0" y="60" width="1440" height="500" rx="8"/>
+
+    <rect class="url-bar" x="40" y="78" width="1360" height="28" rx="14"/>
+    <text class="url-text" x="60" y="96">🔒 irctc.co.in/recover/TXN-2026-XYZ</text>
+
+    <rect class="header" x="0" y="116" width="1440" height="56"/>
+    <text x="40" y="150" font-size="20" font-weight="700" fill="#FFFFFF">IRCTC · Payment Recovery</text>
+
+    <!-- 2-column layout -->
+    <!-- left: status -->
+    <rect x="60" y="200" width="640" height="280" rx="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <circle cx="380" cy="262" r="28" fill="none" stroke="#F59E0B" stroke-width="4" stroke-dasharray="80 40">
+      <animateTransform attributeName="transform" type="rotate" from="0 380 262" to="360 380 262" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="380" y="340" text-anchor="middle" font-size="28" font-weight="800" fill="#92400E">Confirming with Railways…</text>
+    <text x="380" y="370" text-anchor="middle" font-size="14" fill="#92400E">This usually takes 30 seconds. Don't close this page.</text>
+
+    <rect x="280" y="410" width="200" height="44" rx="8" fill="#F59E0B"/>
+    <text x="380" y="438" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">↻ Refresh</text>
+
+    <!-- right: details -->
+    <rect class="card" x="740" y="200" width="640" height="130" rx="12"/>
+    <text x="760" y="227" font-size="11" font-weight="700" fill="#6B7280">PAYMENT</text>
+    <text x="760" y="255" font-size="14" fill="#374151">Amount</text>
+    <text x="1360" y="255" font-size="16" font-weight="700" text-anchor="end">₹3,420</text>
+    <text x="760" y="280" font-size="14" fill="#374151">Transaction ID</text>
+    <text class="mono" x="1360" y="280" font-size="13" text-anchor="end">TXN-2026-XYZ</text>
+    <text x="760" y="305" font-size="14" fill="#374151">Bank reference</text>
+    <text class="mono" x="1360" y="305" font-size="13" text-anchor="end">RZP-987654321</text>
+
+    <rect class="card" x="740" y="350" width="640" height="120" rx="12"/>
+    <text x="760" y="377" font-size="11" font-weight="700" fill="#6B7280">BOOKING ATTEMPT</text>
+    <text x="760" y="405" font-size="16" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="760" y="430" font-size="13" fill="#6B7280">NDLS → BCT · 13 May 2026 · 4 passengers</text>
+
+    <line class="anno-line" x1="700" y1="105" x2="700" y2="0"/>
+    <rect class="label-bg" x="500" y="-25" width="400" height="20" rx="4"/>
+    <text class="annotation" x="510" y="-10">Same URL on desktop and mobile — fully deep-linkable.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- BEFORE/AFTER                                                    -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 2380)">
+    <text class="frame-title" x="0" y="-10" fill="#DC2626">BEFORE / AFTER (note: positioned visibly above this point in viewBox)</text>
+  </g>
+
+  <g transform="translate(40, 1700)">
+    <text class="frame-title" x="0" y="20" fill="#DC2626">BEFORE / AFTER comparison</text>
+
+    <!-- BEFORE -->
+    <rect class="device" x="0" y="50" width="280" height="100" rx="8"/>
+    <rect class="frame" x="0" y="50" width="280" height="100" rx="8"/>
+    <rect x="0" y="50" width="280" height="30" rx="8" fill="#1A237E"/>
+    <text x="140" y="70" font-size="12" fill="#FFFFFF" text-anchor="middle">IRCTC Login</text>
+    <text x="140" y="105" text-anchor="middle" font-size="11" fill="#374151">Session expired. Please login again.</text>
+    <text x="140" y="125" text-anchor="middle" font-size="9" fill="#9CA3AF">(no transaction info, no recovery)</text>
+    <text x="140" y="170" text-anchor="middle" font-size="13" fill="#DC2626" font-weight="700">BEFORE</text>
+    <text x="140" y="188" text-anchor="middle" font-size="10" fill="#6B7280">Money debited. Ticket unknown.</text>
+    <text x="140" y="201" text-anchor="middle" font-size="10" fill="#6B7280">Login page. No txn ID. 5–7 day refund.</text>
+
+    <text x="320" y="100" font-size="48" fill="#10B981">→</text>
+
+    <!-- AFTER (mini) -->
+    <rect class="device" x="370" y="50" width="280" height="100" rx="8"/>
+    <rect class="frame" x="370" y="50" width="280" height="100" rx="8"/>
+    <rect x="370" y="50" width="280" height="30" rx="8" fill="#1A237E"/>
+    <text x="510" y="70" font-size="12" fill="#FFFFFF" text-anchor="middle">Payment Recovery</text>
+    <rect x="380" y="85" width="260" height="60" rx="6" fill="#FFFBEB" stroke="#F59E0B"/>
+    <text x="510" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">Confirming with Railways…</text>
+    <text x="510" y="123" text-anchor="middle" font-size="9" fill="#92400E">TXN-2026-XYZ · ₹3,420</text>
+    <text x="510" y="138" text-anchor="middle" font-size="9" fill="#92400E">12951 Rajdhani · 13 May</text>
+
+    <text x="510" y="170" text-anchor="middle" font-size="13" fill="#10B981" font-weight="700">AFTER</text>
+    <text x="510" y="188" text-anchor="middle" font-size="10" fill="#374151">Dedicated screen. Txn ID. Status.</text>
+    <text x="510" y="201" text-anchor="middle" font-size="10" fill="#374151">One-tap retry — no double charge.</text>
+  </g>
+</svg>

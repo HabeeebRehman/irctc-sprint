@@ -1,0 +1,393 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 2400" font-family="Inter, system-ui, sans-serif">
+  <style>
+    .frame { fill: #FFFFFF; stroke: #1F2937; stroke-width: 2; }
+    .device { fill: #F9FAFB; stroke: #9CA3AF; stroke-width: 1; }
+    .header { fill: #1A237E; }
+    .card { fill: #FFFFFF; stroke: #E5E7EB; stroke-width: 1; }
+    .annotation { fill: #DC2626; font-style: italic; font-size: 11px; }
+    .anno-line { stroke: #DC2626; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }
+    .label-bg { fill: #FEF2F2; stroke: #DC2626; stroke-width: 1; }
+    .frame-title { fill: #111827; font-weight: 700; font-size: 18px; }
+    .state-label { fill: #4B5563; font-weight: 600; font-size: 13px; }
+  </style>
+
+  <rect x="0" y="0" width="1800" height="60" fill="#111827"/>
+  <text x="30" y="38" fill="#FFFFFF" font-size="20" font-weight="700">Spec 5 — PNR Status: Plain-Language + Confirmation Probability</text>
+  <text x="30" y="55" fill="#9CA3AF" font-size="12">Result view · States: High prob / Medium / Low / Chart-prepared confirmed / Chart-prepared unconfirmed / Service down</text>
+
+  <!-- ============================================================== -->
+  <!-- HIGH PROBABILITY                                                -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · High probability (70%)</text>
+    <text class="state-label" x="0" y="40">Green bar — likely to confirm</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="20" y="93" font-size="20" fill="#FFFFFF">←</text>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+    <text x="320" y="93" font-size="16" fill="#FFFFFF">↗</text>
+    <text x="350" y="93" font-size="16" fill="#FFFFFF">↻</text>
+
+    <!-- HEADLINE BLOCK -->
+    <rect x="16" y="140" width="358" height="160" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <text x="32" y="170" font-size="11" font-weight="700" fill="#065F46">CONFIRMATION PROBABILITY</text>
+    <text x="32" y="220" font-size="36" font-weight="800" fill="#065F46">Likely to confirm: 70%</text>
+    <text x="32" y="244" font-size="13" fill="#065F46">Chart prepares in 4 hours · 14:30 today</text>
+
+    <!-- progress bar -->
+    <rect x="32" y="260" width="326" height="12" rx="6" fill="#D1FAE5"/>
+    <rect x="32" y="260" width="228" height="12" rx="6" fill="#10B981"/>
+    <text x="362" y="268" font-size="11" font-weight="700" fill="#065F46" text-anchor="end">70%</text>
+
+    <!-- (i) info -->
+    <text x="32" y="290" font-size="11" fill="#065F46" text-decoration="underline">ⓘ How is this calculated?</text>
+
+    <!-- TRAIN SUMMARY -->
+    <rect class="card" x="16" y="320" width="358" height="80" rx="8"/>
+    <text x="32" y="343" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="362" font-size="11" fill="#6B7280">NDLS New Delhi → BCT Mumbai Central</text>
+    <text x="32" y="380" font-size="11" fill="#6B7280">Wed, 13 May 2026 · Departs 16:25</text>
+
+    <!-- PASSENGER TABLE -->
+    <text x="20" y="425" font-size="11" font-weight="700" fill="#6B7280">PASSENGERS</text>
+
+    <rect class="card" x="16" y="438" width="358" height="68" rx="8"/>
+    <text x="32" y="460" font-size="13" font-weight="700">R., 67y</text>
+    <text x="32" y="478" font-size="11" fill="#6B7280">Current: WL 12 · Waitlist 12 (General Quota)</text>
+    <rect x="32" y="488" width="200" height="6" rx="3" fill="#D1FAE5"/>
+    <rect x="32" y="488" width="140" height="6" rx="3" fill="#10B981"/>
+    <text x="240" y="494" font-size="10" font-weight="700" fill="#065F46">70%</text>
+
+    <rect class="card" x="16" y="514" width="358" height="68" rx="8"/>
+    <text x="32" y="536" font-size="13" font-weight="700">S., 62y</text>
+    <text x="32" y="554" font-size="11" fill="#6B7280">Current: WL 13 · Waitlist 13 (General Quota)</text>
+    <rect x="32" y="564" width="200" height="6" rx="3" fill="#D1FAE5"/>
+    <rect x="32" y="564" width="130" height="6" rx="3" fill="#10B981"/>
+    <text x="240" y="570" font-size="10" font-weight="700" fill="#065F46">65%</text>
+
+    <!-- TIMELINE -->
+    <text x="20" y="610" font-size="11" font-weight="700" fill="#6B7280">CHART PREPARATION TIMELINE</text>
+    <line x1="32" y1="640" x2="358" y2="640" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="32" cy="640" r="6" fill="#9CA3AF"/>
+    <text x="32" y="668" font-size="9" fill="#6B7280" text-anchor="middle">Booked</text>
+    <text x="32" y="680" font-size="9" fill="#6B7280" text-anchor="middle">8 May</text>
+
+    <circle cx="140" cy="640" r="8" fill="#1A237E"/>
+    <text x="140" y="668" font-size="10" fill="#1A237E" text-anchor="middle" font-weight="700">Now · WL 12</text>
+
+    <circle cx="248" cy="640" r="6" fill="#9CA3AF"/>
+    <text x="248" y="668" font-size="9" fill="#6B7280" text-anchor="middle">Chart prep</text>
+    <text x="248" y="680" font-size="9" fill="#6B7280" text-anchor="middle">14:30 today</text>
+
+    <circle cx="358" cy="640" r="6" fill="#9CA3AF"/>
+    <text x="358" y="668" font-size="9" fill="#6B7280" text-anchor="middle">Final</text>
+    <text x="358" y="680" font-size="9" fill="#6B7280" text-anchor="middle">14:30</text>
+
+    <!-- Action buttons -->
+    <rect x="16" y="720" width="115" height="40" rx="6" fill="#1A237E"/>
+    <text x="73" y="745" text-anchor="middle" font-size="11" fill="#FFFFFF" font-weight="700">🔔 Notify</text>
+
+    <rect x="137" y="720" width="115" height="40" rx="6" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="194" y="745" text-anchor="middle" font-size="11" fill="#1A237E" font-weight="700">↗ Share</text>
+
+    <rect x="258" y="720" width="116" height="40" rx="6" fill="#FFFFFF" stroke="#1A237E"/>
+    <text x="316" y="745" text-anchor="middle" font-size="11" fill="#1A237E" font-weight="700">↻ Refresh</text>
+
+    <!-- expander -->
+    <rect class="card" x="16" y="780" width="358" height="40" rx="6"/>
+    <text x="32" y="805" font-size="12" fill="#1A237E" font-weight="600">How predictions work ▸</text>
+
+    <line class="anno-line" x1="195" y1="220" x2="-30" y2="220"/>
+    <rect class="label-bg" x="-220" y="200" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="217">Headline answers user's actual</text>
+    <text class="annotation" x="-210" y="230">question — replaces buried jargon.</text>
+
+    <line class="anno-line" x1="248" y1="640" x2="450" y2="640"/>
+    <rect class="label-bg" x="450" y="620" width="220" height="40" rx="4"/>
+    <text class="annotation" x="460" y="637">Chart prep is now the headline</text>
+    <text class="annotation" x="460" y="650">event — was a footnote.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- MEDIUM PROBABILITY                                              -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Medium probability (50%)</text>
+    <text class="state-label" x="0" y="40">Amber — uncertain</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+
+    <rect x="16" y="140" width="358" height="180" rx="12" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+    <text x="32" y="170" font-size="11" font-weight="700" fill="#92400E">CONFIRMATION PROBABILITY</text>
+    <text x="32" y="220" font-size="32" font-weight="800" fill="#92400E">Uncertain — 50%</text>
+    <text x="32" y="245" font-size="13" fill="#92400E">Could go either way · Chart prep in 4 hours</text>
+
+    <rect x="32" y="265" width="326" height="12" rx="6" fill="#FEF3C7"/>
+    <rect x="32" y="265" width="163" height="12" rx="6" fill="#F59E0B"/>
+    <text x="362" y="273" font-size="11" font-weight="700" fill="#92400E" text-anchor="end">50%</text>
+
+    <text x="32" y="300" font-size="11" font-weight="700" fill="#92400E">💡 Watch this PNR — chart prep at 14:30</text>
+
+    <!-- train summary -->
+    <rect class="card" x="16" y="340" width="358" height="60" rx="8"/>
+    <text x="32" y="363" font-size="13" font-weight="700">22209 Duronto · 2A</text>
+    <text x="32" y="381" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · 4 passengers</text>
+
+    <!-- passengers -->
+    <rect class="card" x="16" y="420" width="358" height="68" rx="8"/>
+    <text x="32" y="442" font-size="13" font-weight="700">P., 38y</text>
+    <text x="32" y="460" font-size="11" fill="#6B7280">Current: WL 24 · Waitlist 24 (PQ Quota)</text>
+    <rect x="32" y="470" width="200" height="6" rx="3" fill="#FEF3C7"/>
+    <rect x="32" y="470" width="100" height="6" rx="3" fill="#F59E0B"/>
+    <text x="240" y="476" font-size="10" font-weight="700" fill="#92400E">50%</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- LOW PROBABILITY                                                 -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 100)">
+    <text class="frame-title" x="0" y="20">Mobile · Low probability (25%)</text>
+    <text class="state-label" x="0" y="40">Red — likely will not confirm + alternates</text>
+
+    <rect class="device" x="0" y="60" width="390" height="844" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="844" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+
+    <rect x="16" y="140" width="358" height="200" rx="12" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="32" y="170" font-size="11" font-weight="700" fill="#991B1B">CONFIRMATION PROBABILITY</text>
+    <text x="32" y="218" font-size="28" font-weight="800" fill="#991B1B">Likely will not confirm</text>
+    <text x="32" y="248" font-size="32" font-weight="800" fill="#991B1B">25%</text>
+
+    <rect x="32" y="270" width="326" height="12" rx="6" fill="#FEE2E2"/>
+    <rect x="32" y="270" width="82" height="12" rx="6" fill="#EF4444"/>
+    <text x="362" y="278" font-size="11" font-weight="700" fill="#991B1B" text-anchor="end">25%</text>
+
+    <text x="32" y="305" font-size="11" fill="#991B1B" font-weight="700">⚠ Consider booking an alternate train</text>
+
+    <rect class="card" x="16" y="360" width="358" height="50" rx="8"/>
+    <text x="32" y="380" font-size="12" font-weight="700">12953 August Kranti · 3A</text>
+    <text x="32" y="398" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · WL 45 GNWL</text>
+
+    <!-- ALTERNATES -->
+    <text x="20" y="450" font-size="11" font-weight="700" fill="#6B7280">ALTERNATE TRAINS — SAME ROUTE &amp; DATE</text>
+
+    <rect class="card" x="16" y="465" width="358" height="60" rx="8"/>
+    <text x="32" y="488" font-size="13" font-weight="700">12951 Mumbai Rajdhani</text>
+    <text x="32" y="506" font-size="11" fill="#10B981">3A: 12 available now</text>
+    <text x="345" y="498" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect class="card" x="16" y="535" width="358" height="60" rx="8"/>
+    <text x="32" y="558" font-size="13" font-weight="700">22209 Duronto</text>
+    <text x="32" y="576" font-size="11" fill="#10B981">3A: 4 available now</text>
+    <text x="345" y="568" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect x="16" y="620" width="358" height="48" rx="8" fill="#1A237E"/>
+    <text x="195" y="650" text-anchor="middle" font-size="14" fill="#FFFFFF" font-weight="700">View all alternates →</text>
+
+    <line class="anno-line" x1="195" y1="305" x2="-30" y2="305"/>
+    <rect class="label-bg" x="-220" y="285" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="302">Honest framing + actionable</text>
+    <text class="annotation" x="-210" y="315">recommendation. No false hope.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- CHART PREPARED — CONFIRMED                                      -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Chart prepared · CONFIRMED</text>
+    <text class="state-label" x="0" y="40">No prediction — final allocation shown</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+
+    <!-- CONFIRMED HEADLINE -->
+    <rect x="16" y="140" width="358" height="160" rx="12" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <text x="195" y="180" text-anchor="middle" font-size="40" fill="#10B981">✓</text>
+    <text x="195" y="220" text-anchor="middle" font-size="24" font-weight="800" fill="#065F46">Confirmed</text>
+    <text x="195" y="245" text-anchor="middle" font-size="13" fill="#065F46">Chart prepared 14:30 today</text>
+    <text x="195" y="278" text-anchor="middle" font-size="11" fill="#065F46">Have a safe journey 🚂</text>
+
+    <!-- Train + passengers final allocation -->
+    <rect class="card" x="16" y="320" width="358" height="60" rx="8"/>
+    <text x="32" y="343" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="361" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · 16:25</text>
+
+    <text x="20" y="410" font-size="11" font-weight="700" fill="#6B7280">FINAL ALLOCATION</text>
+
+    <rect class="card" x="16" y="425" width="358" height="56" rx="8"/>
+    <text x="32" y="447" font-size="13" font-weight="700">R., 67y</text>
+    <text x="32" y="465" font-size="13" font-weight="600" fill="#10B981">B4 · Berth 45 · Lower</text>
+
+    <rect class="card" x="16" y="490" width="358" height="56" rx="8"/>
+    <text x="32" y="512" font-size="13" font-weight="700">S., 62y</text>
+    <text x="32" y="530" font-size="13" font-weight="600" fill="#10B981">B4 · Berth 47 · Middle</text>
+
+    <line class="anno-line" x1="195" y1="220" x2="-30" y2="220"/>
+    <rect class="label-bg" x="-220" y="200" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="217">No probability shown after</text>
+    <text class="annotation" x="-210" y="230">chart prep — answer is final.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- CHART PREPARED — UNCONFIRMED                                    -->
+  <!-- ============================================================== -->
+  <g transform="translate(540, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Chart prepared · NOT confirmed</text>
+    <text class="state-label" x="0" y="40">Suggest alternates, refund info</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+
+    <rect x="16" y="140" width="358" height="180" rx="12" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+    <text x="195" y="178" text-anchor="middle" font-size="32" fill="#EF4444">✗</text>
+    <text x="195" y="218" text-anchor="middle" font-size="22" font-weight="800" fill="#991B1B">Did not confirm</text>
+    <text x="195" y="245" text-anchor="middle" font-size="12" fill="#991B1B">Final waitlist position: WL 8</text>
+    <text x="195" y="270" text-anchor="middle" font-size="11" fill="#991B1B">Chart prepared 14:30 today</text>
+    <text x="195" y="295" text-anchor="middle" font-size="12" fill="#991B1B" font-weight="700">Auto-refund initiated</text>
+
+    <!-- Refund info -->
+    <rect class="card" x="16" y="345" width="358" height="56" rx="8"/>
+    <text x="32" y="368" font-size="11" fill="#6B7280">Refund timeline</text>
+    <text x="32" y="386" font-size="13" font-weight="600">3–5 working days · Track refund →</text>
+
+    <text x="20" y="430" font-size="11" font-weight="700" fill="#6B7280">SUGGESTED ALTERNATES</text>
+
+    <rect class="card" x="16" y="445" width="358" height="56" rx="8"/>
+    <text x="32" y="468" font-size="13" font-weight="700">12909 Garib Rath · 3A</text>
+    <text x="32" y="486" font-size="11" fill="#10B981">8 available · departs 19:30</text>
+    <text x="345" y="478" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+
+    <rect class="card" x="16" y="510" width="358" height="56" rx="8"/>
+    <text x="32" y="533" font-size="13" font-weight="700">12953 August Kranti · 2A</text>
+    <text x="32" y="551" font-size="11" fill="#F59E0B">2 available · departs 17:40</text>
+    <text x="345" y="543" font-size="14" fill="#1A237E" text-anchor="end">→</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- SERVICE DOWN (graceful degradation)                             -->
+  <!-- ============================================================== -->
+  <g transform="translate(1040, 1020)">
+    <text class="frame-title" x="0" y="20">Mobile · Probability service down</text>
+    <text class="state-label" x="0" y="40">Graceful degradation — translation still works</text>
+
+    <rect class="device" x="0" y="60" width="390" height="700" rx="20"/>
+    <rect class="frame" x="0" y="60" width="390" height="700" rx="20"/>
+
+    <rect class="header" x="0" y="60" width="390" height="56" rx="20"/>
+    <rect class="header" x="0" y="100" width="390" height="16"/>
+    <text x="155" y="93" font-size="13" font-weight="600" fill="#FFFFFF">PNR 1234567890</text>
+
+    <!-- subtle banner -->
+    <rect x="16" y="135" width="358" height="40" rx="6" fill="#F3F4F6" stroke="#9CA3AF"/>
+    <text x="32" y="160" font-size="11" fill="#374151">ⓘ Confirmation prediction temporarily unavailable</text>
+
+    <rect class="card" x="16" y="195" width="358" height="60" rx="8"/>
+    <text x="32" y="218" font-size="13" font-weight="700">12951 Mumbai Rajdhani · 3A</text>
+    <text x="32" y="236" font-size="11" fill="#6B7280">NDLS → BCT · 13 May · 16:25</text>
+
+    <!-- Plain language translation still works -->
+    <text x="20" y="280" font-size="11" font-weight="700" fill="#6B7280">PASSENGERS — CURRENT STATUS</text>
+
+    <rect class="card" x="16" y="295" width="358" height="68" rx="8"/>
+    <text x="32" y="317" font-size="13" font-weight="700">R., 67y</text>
+    <text x="32" y="335" font-size="11" fill="#374151">WL 12</text>
+    <text x="32" y="353" font-size="11" fill="#6B7280">Waitlist position 12 (General Quota)</text>
+
+    <rect class="card" x="16" y="372" width="358" height="68" rx="8"/>
+    <text x="32" y="394" font-size="13" font-weight="700">S., 62y</text>
+    <text x="32" y="412" font-size="11" fill="#374151">WL 13</text>
+    <text x="32" y="430" font-size="11" fill="#6B7280">Waitlist position 13 (General Quota)</text>
+
+    <!-- Timeline still works -->
+    <text x="20" y="475" font-size="11" font-weight="700" fill="#6B7280">CHART PREPARATION</text>
+    <text x="32" y="500" font-size="13" font-weight="600">Chart prepares in 4 hours · 14:30 today</text>
+
+    <line class="anno-line" x1="195" y1="160" x2="-30" y2="160"/>
+    <rect class="label-bg" x="-220" y="140" width="240" height="40" rx="4"/>
+    <text class="annotation" x="-210" y="157">Translation, train info, timeline</text>
+    <text class="annotation" x="-210" y="170">all still work — only prediction</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- BEFORE/AFTER                                                    -->
+  <!-- ============================================================== -->
+  <g transform="translate(40, 1800)">
+    <text class="frame-title" x="0" y="20" fill="#DC2626">BEFORE / AFTER comparison</text>
+
+    <!-- BEFORE -->
+    <rect class="device" x="0" y="50" width="280" height="500" rx="12"/>
+    <rect class="frame" x="0" y="50" width="280" height="500" rx="12"/>
+    <rect x="0" y="50" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="0" y="70" width="280" height="20" fill="#1A237E"/>
+    <text x="140" y="79" font-size="13" fill="#FFFFFF" text-anchor="middle">PNR Enquiry</text>
+
+    <text x="140" y="130" text-anchor="middle" font-size="11" fill="#6B7280">12951 · NDLS-BCT · 13 May · 3A</text>
+
+    <text x="20" y="170" font-size="10" font-weight="700">Pax 1: WL 12 GNWL</text>
+    <text x="20" y="190" font-size="10" font-weight="700">Pax 2: WL 13 GNWL</text>
+    <text x="20" y="225" font-size="9" fill="#6B7280">Chart Status: Chart Not Prepared</text>
+
+    <text x="140" y="320" text-anchor="middle" font-size="13" fill="#DC2626" font-weight="700">Raw codes only</text>
+    <text x="140" y="340" text-anchor="middle" font-size="11" fill="#6B7280">No probability. No plain English.</text>
+    <text x="140" y="356" text-anchor="middle" font-size="11" fill="#6B7280">Chart status as a footnote.</text>
+    <text x="140" y="372" text-anchor="middle" font-size="11" fill="#6B7280">Users → ConfirmTKT, RailYatri</text>
+    <text x="140" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#DC2626">BEFORE</text>
+
+    <text x="320" y="290" font-size="48" fill="#10B981">→</text>
+
+    <!-- AFTER -->
+    <rect class="device" x="370" y="50" width="280" height="500" rx="12"/>
+    <rect class="frame" x="370" y="50" width="280" height="500" rx="12"/>
+    <rect x="370" y="50" width="280" height="40" rx="12" fill="#1A237E"/>
+    <rect x="370" y="70" width="280" height="20" fill="#1A237E"/>
+    <text x="510" y="79" font-size="13" fill="#FFFFFF" text-anchor="middle">PNR 1234567890</text>
+
+    <!-- mini high prob -->
+    <rect x="380" y="110" width="260" height="100" rx="8" fill="#F0FDF4" stroke="#10B981" stroke-width="2"/>
+    <text x="510" y="138" text-anchor="middle" font-size="11" font-weight="700" fill="#065F46">Likely to confirm</text>
+    <text x="510" y="170" text-anchor="middle" font-size="28" font-weight="800" fill="#065F46">70%</text>
+    <rect x="395" y="180" width="230" height="8" rx="4" fill="#D1FAE5"/>
+    <rect x="395" y="180" width="161" height="8" rx="4" fill="#10B981"/>
+    <text x="510" y="202" text-anchor="middle" font-size="10" fill="#065F46">Chart prep in 4 hours</text>
+
+    <!-- mini passenger -->
+    <text x="385" y="240" font-size="10" font-weight="700">R., 67y · WL 12</text>
+    <text x="385" y="256" font-size="9" fill="#6B7280">Waitlist 12 (General Quota)</text>
+
+    <text x="385" y="285" font-size="10" font-weight="700">S., 62y · WL 13</text>
+    <text x="385" y="301" font-size="9" fill="#6B7280">Waitlist 13 (General Quota)</text>
+
+    <!-- timeline mini -->
+    <line x1="395" y1="335" x2="625" y2="335" stroke="#E5E7EB" stroke-width="2"/>
+    <circle cx="395" cy="335" r="4" fill="#9CA3AF"/>
+    <circle cx="475" cy="335" r="6" fill="#1A237E"/>
+    <circle cx="555" cy="335" r="4" fill="#9CA3AF"/>
+    <circle cx="625" cy="335" r="4" fill="#9CA3AF"/>
+    <text x="475" y="358" font-size="8" text-anchor="middle" fill="#1A237E" font-weight="700">Now</text>
+    <text x="555" y="358" font-size="8" text-anchor="middle" fill="#6B7280">14:30</text>
+
+    <text x="510" y="395" text-anchor="middle" font-size="13" fill="#10B981" font-weight="700">Probability + plain language</text>
+    <text x="510" y="413" text-anchor="middle" font-size="11" fill="#6B7280">+ chart prep as headline</text>
+    <text x="510" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#10B981">AFTER</text>
+  </g>
+</svg>
